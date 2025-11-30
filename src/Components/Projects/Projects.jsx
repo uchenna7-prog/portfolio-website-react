@@ -2,17 +2,17 @@ import styles from "./Projects.module.css"
 
 import ProjectCard from "./ProjectCard"
 
-import cgpaCalcHome from "../.././assets/CgpaCalcScreenshots/cgpaCalcHome.png"
-import cgpaCalc from "../.././assets/CgpaCalcScreenshots/cgpaCalc.png"
-import cgpaPredictor from "../.././assets/CgpaCalcScreenshots/cgpaPredictor.png"
-import gpaCalc from "../.././assets/CgpaCalcScreenshots/gpaCalc.png"
+import cgpaCalcHome from "../../assets/CgpaCalcScreenshots/cgpaCalcHome.png"
+import cgpaCalc from "../../assets/CgpaCalcScreenshots/cgpaCalc.png"
+import cgpaPredictor from "../../assets/CgpaCalcScreenshots/cgpaPredictor.png"
+import gpaCalc from "../../assets/CgpaCalcScreenshots/gpaCalc.png"
 
-import portfolioHome from "../.././assets/PortfolioScreenshots/portfolioHome.png"
-import portfolioAbout from "../.././assets/PortfolioScreenshots/portfolioAbout.png"
-import portfolioServices from "../.././assets/PortfolioScreenshots/portfolioServices.png"
-import portfolioSkills from "../.././assets/PortfolioScreenshots/portfolioSkills.png"
-import portfolioProjects from "../.././assets/PortfolioScreenshots/portfolioProject.png"
-import portfolioContact from "../.././assets/PortfolioScreenshots/portfolioContact.png"
+import portfolioHome from "../../assets/PortfolioScreenshots/portfolioHome.png"
+import portfolioAbout from "../../assets/PortfolioScreenshots/portfolioAbout.png"
+import portfolioServices from "../../assets/PortfolioScreenshots/portfolioServices.png"
+import portfolioSkills from "../../assets/PortfolioScreenshots/portfolioSkills.png"
+import portfolioProjects from "../../assets/PortfolioScreenshots/portfolioProject.png"
+import portfolioContact from "../../assets/PortfolioScreenshots/portfolioContact.png"
 
 
 
