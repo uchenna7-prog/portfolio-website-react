@@ -2,7 +2,7 @@ import styles from "./Hero.module.css"
 
 function Hero(){
     return(
-        <section className={styles.heroSection}>
+        <section className={styles.heroSection} id="home">
             <div>
                 <h1 className="name">UCHENDU UCHENNA</h1>
                 <div className={styles.briefIntro}>Front-end Web Developer | Computer Science Student.</div>

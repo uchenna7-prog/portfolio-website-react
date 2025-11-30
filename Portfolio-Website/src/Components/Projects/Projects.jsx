@@ -24,7 +24,7 @@ import crop from "../../assets/crop.jpeg"
 
 function Projects(){
     return(
-        <section  className={styles.projectsSection}>
+        <section  className={styles.projectsSection} id="projects">
             <h2 className="sectionHeading">RECENT PROJECTS</h2>
             <ProjectCard technologiesUsed={["HTML","CSS","Javascript","Python"]} projectTitle="PORTFOLIO WEBSITE"  images={[portfolioHome,portfolioAbout,portfolioServices,portfolioSkills,portfolioProjects,portfolioContact]} projectDecription="A modern personal portfolio website showcasing my skills, services, experience, and projects, featuring smooth navigation, responsive design, engaging visual sections, and an accessible contact area for seamless communication with visitors and potential clients."/>
             <ProjectCard technologiesUsed={["HTML","CSS","Javascript"]} projectTitle="CGPA CALCULATOR" images={[cgpaCalcHome,cgpaCalc, cgpaPredictor,gpaCalc]} projectDecription="A streamlined CGPA Calculator app designed for Nigerian university students, featuring dynamic semester tracking, quick per-semester GPA computation, and an intuitive predictor tool that estimates future CGPA using previous performance and expected grades."/>

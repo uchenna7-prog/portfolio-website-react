@@ -3,7 +3,7 @@ import styles from "./Contact.module.css"
 function Contact(){
 
     return(
-        <section className={styles.contactSection}>
+        <section className={styles.contactSection} id="contact">
             <h2 className="sectionHeading">LET'S CONNECT</h2>
             <div className={styles.contactContainer}>
                 <form className={styles.form}>

@@ -2,7 +2,7 @@ import styles from './Skills.module.css';
 
 function Skills() {
     return (
-        <section className={styles.skillsSection}>
+        <section className={styles.skillsSection} id="skills">
             <h2 className="sectionHeading">SKILLS</h2>
             <div className={styles.skillsContainer}></div> 
             <div className={styles.sliderContainer}>
@@ -55,12 +55,9 @@ function Skills() {
                     <div className={styles.skill}><i className="ci ci-flask"></i><span>Flask</span></div>
                     <div className={styles.skill}><i className="ci ci-django"></i><span>Django</span></div>
                     <div className={styles.skill}><i className="ci ci-expressjs"></i><span>Express.js</span></div>
-                    <div className={styles.skill}><i className="ci ci-tailwindcss"></i><span>Tailwind Css</span></div>
-                   
+                    <div className={styles.skill}><i className="ci ci-tailwindcss"></i><span>Tailwind Css</span></div>                
                     
                 </div>
-
-                
 
             </div>
              <div className={styles.sliderContainer}>

@@ -135,8 +135,8 @@ ul {
 
     /* stronger glow when filled */
     box-shadow:
-        0 0 8px #0e60b3,
-        0 0 16px rgba(14, 96, 179, 0.8);
+        0 0 5px #0e60b3,
+        0 0 5px rgba(14, 96, 179, 0.8);
 }
 
 .tLine2 {

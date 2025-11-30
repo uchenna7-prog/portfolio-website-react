@@ -48,7 +48,7 @@ export default function Experience() {
   }, []);
 
   return (
-    <section className={styles.experienceSection}>
+    <section className={styles.experienceSection} id="experience">
       <h2 className="sectionHeading">EXPERIENCE</h2>
       <div className={styles.timelineContainer} ref={timelineRef}>
         <div className={styles.tLine1}></div>

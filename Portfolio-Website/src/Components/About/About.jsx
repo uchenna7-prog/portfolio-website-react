@@ -3,7 +3,7 @@ import profilePic from "../../assets/profilePic.jpg"
 
 function About(){
     return(
-    <section className={styles.aboutSection}>
+    <section className={styles.aboutSection} id="about">
         <h2 className="sectionHeading">ABOUT ME</h2>
         <div className={styles.aboutSectionContentContainer}>
           <img className ={styles.profilePicture} src={profilePic}/>

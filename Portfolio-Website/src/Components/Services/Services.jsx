@@ -2,7 +2,7 @@ import styles from "./Services.module.css";
 
 function Services() {
   return (
-    <section className={styles.servicesSection}>
+    <section className={styles.servicesSection} id="services">
       <h1 className="sectionHeading">SERVICES</h1>
 
       <div className={styles.cardsWrapper}>
