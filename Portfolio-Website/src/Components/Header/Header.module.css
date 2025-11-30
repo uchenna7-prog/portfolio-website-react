@@ -1,0 +1,58 @@
+.headerSection{
+    color:var(--color2);
+    background-color: transparent;
+    backdrop-filter: blur(50px);
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1000;
+    padding: 5px;
+}
+
+.headerContainer{
+    padding: 15px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navLinksContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:25px;
+    justify-content: flex-end;
+    width: 50%;
+}
+.navLink{
+    text-decoration:none;
+    color: var(--color2);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+}
+.navLink:hover{
+    color:#0e60b3;
+}
+
+.toogleThemeBtn,.menuBtn,.logo{
+    cursor:pointer;
+}
+.menuBtn{
+    display:none;
+}
+
+@media(max-width:900px){
+    .navLink{
+        display: none;
+    }
+    .menuBtn {
+        display: block;
+        }
+    .headerSection {
+        padding-right: 10px;
+        background-color: rgba(0,0,0,0.5);
+    }
+}

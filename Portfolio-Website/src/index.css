@@ -1,0 +1,88 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 19px;
+}
+
+
+
+:root {
+  --heroBackground:linear-gradient(to top left, #0e60b3, white);
+  --bg:#edf2fc;
+  --border: #0e60b3;
+  --color1: black;
+  --color2:black;
+  --divBackground:white;
+  --footerBackground:rgb(170, 169, 169);
+  --buttonTextColor1: black;
+  --buttonTextColor2: white;
+  --buttonColor:#62a9f0;
+  --projectLiveDemoBtn:linear-gradient(to top left, #0e60b3, rgba(235,235,235,0.5));
+  --projectViewSourceCodeBtn:black;
+  --horizontalRuleColor: rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme="dark-mode"] {
+  --heroBackground: linear-gradient(to top left, #0e60b3, black);
+  --bg: rgba(10, 10, 10, 1);
+  --border: #0e60b3;
+  --color1: #d0d0d0;
+  --color2: white;
+  --divBackground: rgba(20, 20, 20, 1);
+  --footerBackground:rgb(0, 0, 0) ;
+  --buttonTextColor1: white;
+  --buttonTextColor2: black;
+  --buttonColor: #0e60b3;
+  --projectLiveDemoBtn: linear-gradient(to top left, #0e60b3, rgba(20, 20, 20, 1));
+  --projectViewSourceCodeBtn: white;
+  --horizontalRuleColor: rgba(255, 255, 255, 0.6);
+}
+
+#root {
+  position: relative;
+  font-family: "PT Sans", sans-serif;
+  color: var(--color1);
+  font-size: 1rem;
+
+}
+body{
+  margin: 0;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.sectionHeading{
+  font-family: "Doto", sans-serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--color2);
+}
+
+.title{
+  color:var(--color2);
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.name {
+  font-family: "Doto", sans-serif;
+  color: var(--color2);
+ 
+}
+
+@media(max-width:610px) {
+
+  html {
+    font-size: 14px;
+  }
+
+}

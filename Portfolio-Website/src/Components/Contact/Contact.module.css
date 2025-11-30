@@ -1,0 +1,145 @@
+.contactSection{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    background-color: var(--bg);
+    padding: 60px 0;
+
+}
+.contactContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:30px;
+    justify-content: center;
+    width: 80%;
+}
+.contactContainer > div,.contactContainer > form{
+    flex-grow: 1;
+}
+
+
+.contactContainer > form{
+    border: 1px solid #0e60b3;
+    border-radius: 10px;
+
+}
+.contactContainer > div .secondDivFirstHeading {
+    margin-top: 0;
+
+}
+.formRow1Container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+}
+
+.form input{
+    height: 3rem;
+}
+.formRow1Container > input{
+    width: 49%;
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    padding: 30px 0;  
+
+}
+
+.formRowContainer {
+    width:90%;
+ 
+
+}
+.form > div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+   
+
+}
+.form textarea{
+    resize: none;
+    height: 10em;
+}
+
+.form button {
+    height: 3rem;
+}
+.formInput{
+    border-radius: 10px;
+    border: 1px solid #0e60b3;
+    background-color: transparent;
+    color: var(--color); 
+    
+}
+.formButton {
+    border-radius: 10px;
+    border: 1px solid var(--buttonColor);
+    background-color:var(--buttonColor);
+    color: var(--buttonTextColor1);
+
+}
+.sendBtnText{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+}
+.ContactDetailContainer{
+    margin-top: 20px;
+    display:flex;
+    gap:20px;
+    border-radius: 10px;
+    background-color: var(--divBackground);
+    padding: 20px;
+}
+.ContactDetailContainer i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--buttonColor);
+    width: 2em;
+    height: 2em;
+    border-radius: 5px;
+    color: var(--color);
+  
+}
+.socialIconsContainer {
+    display: flex;
+    gap: 14px;
+}
+
+.socialIcon {
+    color: var(--color);
+    background-color: var(--buttonColor);
+    font-size: 0.8em;
+    padding: 8px;
+    border-radius: 50%;
+
+}
+.socialIcon:hover {
+    background-color: #1a75d1;
+}
+@media(max-width:600px){
+    .formRow1Container {
+        flex-direction: column;
+        gap:10px;
+      
+    }
+    .formRow1Container>input {
+        width: 100%;
+    }
+
+}
