@@ -66,6 +66,10 @@ body {
   text-transform: uppercase;
 }
 
+.link{
+  text-decoration: none;
+}
+
 @media(max-width:610px) {
   :root{
     font-size: 14px;

@@ -11,5 +11,12 @@
 }
 .resumePDF{
     width: 80%;
-    height: 150vh;
+    height: 200vh;
+}
+
+@media (max-width: 800px){
+    .resumePDF{
+        width: 95%;
+        height: auto;
+    }
 }

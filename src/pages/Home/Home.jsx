@@ -13,7 +13,6 @@ import Services from '../../Sections/Services/Services'
 export default function Home() {
     return (   
     <div className={styles.appContainer}>
-      <Header/>
       <Hero/>
       <div>
         <About/>
@@ -22,7 +21,6 @@ export default function Home() {
         <Projects/>
         <Experience/>
         <Contact/>
-        <Footer/>
       </div>
 
     </div>

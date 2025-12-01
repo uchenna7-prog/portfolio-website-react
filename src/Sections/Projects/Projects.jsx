@@ -26,12 +26,12 @@ function Projects(){
             <ProjectCard technologiesUsed={["HTML","CSS","Javascript","Python"]} projectTitle="PORTFOLIO WEBSITE"  images={[portfolioHome,portfolioAbout,portfolioServices,portfolioSkills,portfolioProjects,portfolioContact]} projectDecription="A modern personal portfolio website showcasing my skills, services, experience, and projects, featuring smooth navigation, responsive design, engaging visual sections, and an accessible contact area for seamless communication with visitors and potential clients."/>
             <ProjectCard technologiesUsed={["HTML","CSS","Javascript"]} projectTitle="CGPA CALCULATOR" images={[cgpaCalcHome,cgpaCalc, cgpaPredictor,gpaCalc]} projectDecription="A streamlined CGPA Calculator app designed for Nigerian university students, featuring dynamic semester tracking, quick per-semester GPA computation, and an intuitive predictor tool that estimates future CGPA using previous performance and expected grades."/>
             <ProjectCard technologiesUsed={["HTML","CSS","Javascript","Python"]} projectTitle="IMAGE EDITOR"  images={[imageEditorHome,crop, crop,crop]} projectDecription="A versatile image editor web app that lets users remove backgrounds, resize photos, apply quick adjustments, and export high-quality results through an intuitive, responsive interface designed for fast, accessible, and effortless editing."/>
-            <a className={styles.seeAllProjectsBtn}>
-                <Link to="Projects">
+            <Link to="Projects" className="link">
+                <a className={styles.seeAllProjectsBtn}>
                     <span>See All Projects</span> 
-                </Link>
-                <i className="material-icons">open_in_new</i>
-            </a>
+                    <i className="material-icons">open_in_new</i>
+                </a>
+            </Link>
         </section>
     )
 }

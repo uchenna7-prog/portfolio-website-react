@@ -10,7 +10,7 @@ function Hero(){
 
                 <div className={styles.buttonsContainer}>
                     <button className={`${styles.button} ${styles.hireMeBtn}`}>Hire Me</button>
-                    <Link to="/Resume">
+                    <Link to="/Resume" className="link">
                         <button className={`${styles.button} ${styles.resumeBtn}`}>Résumé</button>
                     </Link>
                     
