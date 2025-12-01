@@ -11,7 +11,7 @@ function About(){
             <p>I am Uchendu Uchenna, a passionate Frontend Developer based in Port Harcourt, Nigeria. I build interactive and responsive websites that focus on clean design, great user experience, and efficient performance. My work is driven by curiosity, attention to detail, and a strong desire to create digital products that are both beautiful and functional.</p>
             <p>I’m currently seeking internship opportunities and freelance projects where I can apply my skills, grow through real-world experience, and collaborate with developers who inspire me. I enjoy learning new tools, tackling challenges that improve my problem-solving ability, and contributing to projects that have meaningful impact. If you’re looking for a dedicated, eager-to-learn developer who brings both technical ability and genuine enthusiasm to the table, let’s connect.</p>
             <div className={styles.locationContainer}>
-              <i class="fa-solid fa-location-dot"></i>
+              <i className="fa-solid fa-location-dot"></i>
               <span>port Harcourt, Nigeria.</span>
             </div>
 

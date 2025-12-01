@@ -1,4 +1,5 @@
 import styles from "./Hero.module.css"
+import {Link} from "react-router-dom"
 
 function Hero(){
     return(
@@ -9,7 +10,10 @@ function Hero(){
 
                 <div className={styles.buttonsContainer}>
                     <button className={`${styles.button} ${styles.hireMeBtn}`}>Hire Me</button>
-                    <button className={`${styles.button} ${styles.resumeBtn}`}>Résumé</button>
+                    <Link to="/Resume">
+                        <button className={`${styles.button} ${styles.resumeBtn}`}>Résumé</button>
+                    </Link>
+                    
 
                 </div>
 

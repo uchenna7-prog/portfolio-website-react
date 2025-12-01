@@ -1,5 +1,5 @@
 import styles from "./Services.module.css";
-import ServiceCard from "./ServicesCard";
+import ServiceCard from "./ServiceCard/ServicesCard";
 
 
 function Services() {

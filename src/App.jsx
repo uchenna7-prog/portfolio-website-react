@@ -1,35 +1,25 @@
 
-import "./App.css"
-import Experience from './Components/Experience/Experience'
-import Contact from "./Components/Contact/Contact"
-import Footer from "./Components/Footer/Footer"
-import Hero from "./Components/Hero/Hero"
+import { Routes,Route } from "react-router-dom"
+import Home  from "./pages/Home/Home"
+import Resume from "./pages/Resume/Resume"
+import Projects from "./pages/Projects/Projects"
 import Header from "./Components/Header/Header"
-import About from "./Components/About/About"
-import Skills from './Components/Skills/Skills'
-import Projects from "./Components/Projects/Projects"
-import Services from './Components/Services/Services'
-
+import Footer from "./Components/Footer/Footer"
 
 
 function App() {
  
   return (
-    <div id="appContainer">
+    <>
       <Header/>
-      <Hero/>
-      <div>
-        <About/>
-        <Services/>
-        <Skills/>
-        <Projects/>
-        <Experience/>
-        <Contact/>
-        <Footer/>
-      </div>
-
-    </div>
-
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/Resume" element={<Resume/>}/>
+        <Route path="/Projects" element={<Projects/>}/>
+      </Routes>
+      <Footer/>
+    </>
+   
   )
 }
 

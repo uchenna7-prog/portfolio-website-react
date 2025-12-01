@@ -44,7 +44,7 @@ function ProjectCard(props){
                 
                 <div className={styles.projectDescriptionContainer}>
                     <div className={`${styles.descriptionTitle} title`}>{props.projectTitle}</div>
-                    <p class="project-description">{props.projectDecription}</p>
+                    <p className="project-description">{props.projectDecription}</p>
                     <div className={styles.technologiesUsedContainer}>
                         {
                             props.technologiesUsed.map((technology,index)=><div key={index}>{technology}</div>)
@@ -53,11 +53,11 @@ function ProjectCard(props){
                     <div className={styles.projectCardBtnsContainer}>
                         <a className={styles.viewSourceCodeBtn}>
                             <span>source code</span> 
-                            <i class="fa-brands fa-github fa-lg"></i>
+                            <i className="fa-brands fa-github fa-lg"></i>
                         </a>
                         <a className={styles.viewProjectBtn}>
                             <span>live demo</span> 
-                            <i class="fa-solid fa-link"></i>
+                            <i className="fa-solid fa-link"></i>
                         </a>
 
                     </div>
