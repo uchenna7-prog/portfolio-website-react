@@ -13,10 +13,11 @@
     z-index: 100;
 }
 
+
 .progressLine {
     position: absolute;
     top: 0;
-    left: 10%;
+    left: 6.5rem;
     width: 1px;
     height: 0;
     background-color: #0e60b3;
@@ -27,7 +28,7 @@
 .tLine1 {
     position: absolute;
     top: 0;
-    left: 10%;
+    left: 6.5rem;
     width: 1px;
     height: 100%;
     background-color:gray;
@@ -37,17 +38,19 @@
 .tLine2 {
     position: absolute;
     top: 0;
-    left: 11%;
+    left: 7.2rem;
     width: 1px;
     height: 50%;
     background: linear-gradient(to top, transparent, #0e60b3);
     z-index: 300;
 }
 
+
+    
 .tCircle {
     border: 1px solid gray;
     position: absolute;
-    left: 10%;
+    left: 6.5rem;
     transform: translateX(-50%);
     height: 11px;
     width: 11px;
@@ -55,6 +58,7 @@
     border-radius: 50%;
     z-index: 400;
     transition: background 0.3s ease;
+    box-shadow: 0 0 8px rgba(14, 96, 179, 0.4);
 }
 
 .filled {
@@ -65,7 +69,7 @@
     background-color: #0e60b3;
     border: 1px solid var(--border);
     position: absolute;
-    left: 10%;
+    left: 6.5rem;
     transform: translateX(-50%);
     height: 11px;
     width: 11px;
@@ -112,42 +116,34 @@ ul {
 
 
 
-.tCircle {
-    border: 1px solid gray;
-    position: absolute;
-    left: 10%;
-    transform: translateX(-50%);
-    height: 11px;
-    width: 11px;
-    background: var(--bg);
-    border-radius: 50%;
-    z-index: 400;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
 
-    /* soft base glow */
-    box-shadow: 0 0 8px rgba(14, 96, 179, 0.4);
+
+
+
+
+@media(max-width:1000px){
+    .progressLine {
+        left: 2rem;
+        }
+    
+    .tLine1 {
+        position: absolute;
+        left: 2rem;
+
+    }
+
+    .tLine2 {
+        left: 2.8rem;
+
+    }
+
+    .tCircle {
+        left: 2rem;
+
+    }
+
+    .movingCircle {
+        left: 2rem;
+    }
 }
-
-.filled {
-    background: #0e60b3;
-
-    /* stronger glow when filled */
-    box-shadow:
-        0 0 5px #0e60b3,
-        0 0 5px rgba(14, 96, 179, 0.8);
-}
-
-.tLine2 {
-    position: absolute;
-    top: 0;
-    left: 11%;
-    width: 1px;
-    height: 50%;
-    background: linear-gradient(to top, transparent, #0e60b3);
-
-    /* soft glow */
-    box-shadow: 0 0 10px rgba(14, 96, 179, 0.6);
-}
-
-
 

@@ -51,6 +51,7 @@ export default function Experience() {
     <section className={styles.experienceSection} id="experience">
       <h2 className="sectionHeading">EXPERIENCE</h2>
       <div className={styles.timelineContainer} ref={timelineRef}>
+        
         <div className={styles.tLine1}></div>
         <div className={styles.tLine2}></div>
         <div className={styles.progressLine} ref={progressRef}></div>
