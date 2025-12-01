@@ -1,4 +1,4 @@
-import "./Home.css"
+import styles from "./Home.module.css"
 import Experience from '../../Sections/Experience/Experience'
 import Contact from "../../Sections/Contact/Contact"
 import Footer from "../../Components/Footer/Footer"
@@ -12,7 +12,7 @@ import Services from '../../Sections/Services/Services'
 
 export default function Home() {
     return (   
-    <div id="appContainer">
+    <div className={styles.appContainer}>
       <Header/>
       <Hero/>
       <div>

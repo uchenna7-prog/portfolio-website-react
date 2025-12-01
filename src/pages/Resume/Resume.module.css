@@ -1,0 +1,15 @@
+.resumePageContainer {
+    background-color: var(--bg);
+    padding: 13vh 0;
+}
+
+.resumeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.resumePDF{
+    width: 80%;
+    height: 150vh;
+}
