@@ -17,6 +17,6 @@
 @media (max-width: 800px){
     .resumePDF{
         width: 95%;
-        height: auto;
+        height: 70vh;
     }
 }
