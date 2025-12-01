@@ -1,12 +1,9 @@
 .aboutSection {
-    position: relative;
-    z-index: 2;
     background: var(--bg);
     padding: 60px 30px;
     animation: fadeIn 0.8s ease forwards;
     opacity: 0;
 }
-
 
 .aboutSectionContentContainer {
     display: flex;

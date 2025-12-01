@@ -16,8 +16,8 @@ import portfolioContact from "../../assets/PortfolioScreenshots/portfolioContact
 
 
 
-import imageEditorHome from "../../assets/image-editor.jpeg"
-import crop from "../../assets/crop.jpeg"
+import imageEditorHome from "../../assets/ImageEditorScreenshots/image-editor.jpeg"
+import crop from "../../assets/ImageEditorScreenshots/crop.jpeg"
 
 
 

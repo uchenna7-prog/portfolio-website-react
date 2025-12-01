@@ -1,6 +1,4 @@
 .footerSection{
-    position: relative;
-    z-index: 2;
     background: var(--footerBackground);
     width: 100vw;
     backdrop-filter: blur(50px);

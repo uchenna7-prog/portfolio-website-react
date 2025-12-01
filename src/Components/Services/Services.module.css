@@ -1,12 +1,10 @@
 .servicesSection {
-    position: relative;
-    z-index: 2;
     padding: 60px 20px;
     background: var(--bg);
 
 }
 
-.cardsWrapper {
+.cardsContainer {
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -14,50 +12,9 @@
     margin-top: 40px;
 }
 
-.serviceCard {
-    background-color: var(--divBackground);
-    border: 1px solid #0e60b3;
-    border-radius: 12px;
-    padding: 25px 20px;
-    width: 350px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.serviceCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(14, 96, 179, 0.3);
-}
-
-.cardTitle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-.cardTitle i {
-    color: #0e60b3;
-    font-size: 1.3rem;
-}
-
-.serviceCard p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 12px;
-}
-
-
-@media (max-width: 900px) {
-    .cardsWrapper {
+@media (max-width: 650px){
+    .cardsContainer {
         flex-direction: column;
         align-items: center;
+        }
     }
-
-    .serviceCard {
-        width: 90%;
-        max-width: 350px;
-    }
-}

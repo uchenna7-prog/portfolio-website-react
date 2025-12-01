@@ -1,8 +1,7 @@
 .skillsSection {
     background: var(--bg);
     padding: 50px 20px;
-    position: relative;
-    z-index: 2;
+
     text-align: center;
 }
 

@@ -4,7 +4,7 @@ function Hero(){
     return(
         <section className={styles.heroSection} id="home">
             <div>
-                <h1 className="name">UCHENDU UCHENNA</h1>
+                <h1 className={styles.name}>UCHENDU UCHENNA</h1>
                 <div className={styles.briefIntro}>Front-end Web Developer | Computer Science Student.</div>
 
                 <div className={styles.buttonsContainer}>

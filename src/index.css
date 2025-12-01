@@ -1,15 +1,11 @@
 
 * {
   box-sizing: border-box;
+  
 }
-
-html {
-  font-size: 19px;
-}
-
-
 
 :root {
+  font-size: 19px;
   --heroBackground:linear-gradient(to top left, #0e60b3, white);
   --bg:#edf2fc;
   --border: #0e60b3;
@@ -23,6 +19,7 @@ html {
   --projectLiveDemoBtn:linear-gradient(to top left, #0e60b3, rgba(235,235,235,0.5));
   --projectViewSourceCodeBtn:black;
   --horizontalRuleColor: rgba(0, 0, 0, 0.6);
+   
 }
 
 :root[data-theme="dark-mode"] {
@@ -41,20 +38,16 @@ html {
   --horizontalRuleColor: rgba(255, 255, 255, 0.6);
 }
 
-#root {
+body {
+  margin: 0;
+}
+
+#main {
   position: relative;
   font-family: "PT Sans", sans-serif;
   color: var(--color1);
   font-size: 1rem;
 
-}
-body{
-  margin: 0;
-}
-main{
-  display: flex;
-  flex-direction: column;
-  
 }
 
 .sectionHeading{
@@ -73,15 +66,8 @@ main{
   text-transform: uppercase;
 }
 
-.name {
-  font-family: "Doto", sans-serif;
-  color: var(--color2);
- 
-}
-
 @media(max-width:610px) {
-
-  html {
+  :root{
     font-size: 14px;
   }
 

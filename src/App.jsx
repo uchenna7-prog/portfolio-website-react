@@ -1,4 +1,5 @@
 
+import "./App.css"
 import Experience from './Components/Experience/Experience'
 import Contact from "./Components/Contact/Contact"
 import Footer from "./Components/Footer/Footer"
@@ -10,19 +11,23 @@ import Projects from "./Components/Projects/Projects"
 import Services from './Components/Services/Services'
 
 
+
 function App() {
  
   return (
     <div id="appContainer">
       <Header/>
       <Hero/>
-      <About/>
-      <Services/>
-      <Skills/>
-      <Projects/>
-      <Experience/>
-      <Contact/>
-      <Footer/>
+      <div>
+        <About/>
+        <Services/>
+        <Skills/>
+        <Projects/>
+        <Experience/>
+        <Contact/>
+        <Footer/>
+      </div>
+
     </div>
 
   )

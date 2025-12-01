@@ -10,13 +10,18 @@
 .heroSection > div{
     margin-top: 20vh;
 }
-h1{
+
+.name {
+    font-family: "Doto", sans-serif;
+    color: var(--color2);
     font-size: 3.5rem;
     margin-bottom: 0;
     line-height: 1.2;
     text-align: center;
-    font-weight:900;
+    font-weight: 900;
+
 }
+
 .briefIntro{
     font-family: "Roboto", sans-serif;
     font-size: 1.1rem;
