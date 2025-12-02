@@ -16,6 +16,12 @@ import portfolioContact from "../../assets/PortfolioScreenshots/portfolioContact
 import imageEditorHome from "../../assets/ImageEditorScreenshots/image-editor.jpeg"
 import crop from "../../assets/ImageEditorScreenshots/crop.jpeg"
 
+import tailorHome from "../../assets/TailorWebsiteScreenshots/tailorHome.png"
+import tailorServices from "../../assets/TailorWebsiteScreenshots/tailorServices.png"
+import tailorAbout from "../../assets/TailorWebsiteScreenshots/tailorAbout.png"
+import tailorContact from "../../assets/TailorWebsiteScreenshots/tailorContact.png"
+import tailorGallery from "../../assets/TailorWebsiteScreenshots/tailorGallery.png"
+
 
 export default function Projects() {
     return (
@@ -24,6 +30,7 @@ export default function Projects() {
             <ProjectCard technologiesUsed={["HTML","CSS","Javascript","Python"]} projectTitle="PORTFOLIO WEBSITE"  images={[portfolioHome,portfolioAbout,portfolioServices,portfolioSkills,portfolioProjects,portfolioContact]} projectDecription="A modern personal portfolio website showcasing my skills, services, experience, and projects, featuring smooth navigation, responsive design, engaging visual sections, and an accessible contact area for seamless communication with visitors and potential clients."/>
             <ProjectCard technologiesUsed={["HTML","CSS","Javascript"]} projectTitle="CGPA CALCULATOR" images={[cgpaCalcHome,cgpaCalc, cgpaPredictor,gpaCalc]} projectDecription="A streamlined CGPA Calculator app designed for Nigerian university students, featuring dynamic semester tracking, quick per-semester GPA computation, and an intuitive predictor tool that estimates future CGPA using previous performance and expected grades."/>
             <ProjectCard technologiesUsed={["HTML","CSS","Javascript","Python"]} projectTitle="IMAGE EDITOR"  images={[imageEditorHome,crop, crop,crop]} projectDecription="A versatile image editor web app that lets users remove backgrounds, resize photos, apply quick adjustments, and export high-quality results through an intuitive, responsive interface designed for fast, accessible, and effortless editing."/>
+            <ProjectCard technologiesUsed={["HTML","CSS","Javascript","Python"]} projectTitle="TAILOR WEBSITE"  images={[tailorHome,tailorAbout, tailorServices,tailorGallery,tailorContact]} projectDecription="A versatile image editor web app that lets users remove backgrounds, resize photos, apply quick adjustments, and export high-quality results through an intuitive, responsive interface designed for fast, accessible, and effortless editing."/>
         </div>
        
     )

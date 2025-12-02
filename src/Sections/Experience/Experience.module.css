@@ -13,6 +13,25 @@
     z-index: 100;
 }
 
+.tLine1 {
+    position: absolute;
+    top: 0;
+    left: 6.5rem;
+    width: 1px;
+    height: 100%;
+    background-color: gray;
+    z-index: 200;
+}
+
+.tLine2 {
+    position: absolute;
+    top: 0;
+    left: calc(6.5rem + 10px);
+    width: 1px;
+    height: 50%;
+    background: linear-gradient(to top, transparent, #0e60b3);
+    z-index: 300;
+}
 
 .progressLine {
     position: absolute;
@@ -25,37 +44,19 @@
     transition: height 0.3s ease;
 }
 
-.tLine1 {
-    position: absolute;
-    top: 0;
-    left: 6.5rem;
-    width: 1px;
-    height: 100%;
-    background-color:gray;
-    z-index: 200;
-}
-
-.tLine2 {
-    position: absolute;
-    top: 0;
-    left: 7.2rem;
-    width: 1px;
-    height: 50%;
-    background: linear-gradient(to top, transparent, #0e60b3);
-    z-index: 300;
-}
-
-
-    
-.tCircle {
-    border: 1px solid gray;
+.tCircle,
+.movingCircle {
     position: absolute;
     left: 6.5rem;
     transform: translateX(-50%);
     height: 11px;
     width: 11px;
-    background: var(--bg);
     border-radius: 50%;
+}
+
+.tCircle {
+    border: 1px solid gray;
+    background: var(--bg);
     z-index: 400;
     transition: background 0.3s ease;
     box-shadow: 0 0 8px rgba(14, 96, 179, 0.4);
@@ -66,14 +67,8 @@
 }
 
 .movingCircle {
-    background-color: #0e60b3;
+    background: #0e60b3;
     border: 1px solid var(--border);
-    position: absolute;
-    left: 6.5rem;
-    transform: translateX(-50%);
-    height: 11px;
-    width: 11px;
-    border-radius: 50%;
     z-index: 600;
     transition: top 0.3s ease;
 }
@@ -106,44 +101,24 @@
     font-weight: 800;
 }
 
-ul {
-    padding-left: 25px;
-}
-
 .date {
     font-weight: 800;
 }
 
+ul {
+    padding-left: 25px;
+}
 
+@media(max-width:1000px) {
 
-
-
-
-
-
-@media(max-width:1000px){
-    .progressLine {
-        left: 2rem;
-        }
-    
-    .tLine1 {
-        position: absolute;
-        left: 2rem;
-
-    }
-
-    .tLine2 {
-        left: 2.8rem;
-
-    }
-
-    .tCircle {
-        left: 2rem;
-
-    }
-
+    .tLine1,
+    .progressLine,
+    .tCircle,
     .movingCircle {
         left: 2rem;
     }
-}
 
+    .tLine2 {
+        left: calc(2rem + 10px);
+    }
+}

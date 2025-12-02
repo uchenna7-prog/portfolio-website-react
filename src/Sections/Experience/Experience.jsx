@@ -14,22 +14,29 @@ export default function Experience() {
 
   const updateTimeline = () => {
     if (!timelineRef.current || !progressRef.current || !movingRef.current) return;
+
     const timelineRect = timelineRef.current.getBoundingClientRect();
     const timelineHeight = timelineRef.current.offsetHeight;
-    const progressHeight = Math.min(Math.max(window.innerHeight / 2 - timelineRect.top, 0), timelineHeight);
 
+    const progressHeight = Math.min(
+      Math.max(window.innerHeight / 2 - timelineRect.top, 0),
+      timelineHeight
+    );
+
+    // animate progress
     progressRef.current.style.height = progressHeight + "px";
     movingRef.current.style.top = progressHeight + "px";
 
-    // position circles
+    // vertical circle alignment
     items.current.forEach((item, i) => {
       if (!item || !circles.current[i]) return;
-      const itemRect = item.getBoundingClientRect();
-      const top = itemRect.top - timelineRect.top;
-      circles.current[i].style.top = top + "px";
 
-      // fill/unfill based on progress
-      if (progressHeight > top) {
+      const rect = item.getBoundingClientRect();
+      const top = rect.top - timelineRect.top;
+
+      circles.current[i].style.top = `${top}px`;
+
+      if (progressHeight >= top) {
         circles.current[i].classList.add(styles.filled);
       } else {
         circles.current[i].classList.remove(styles.filled);
@@ -50,8 +57,8 @@ export default function Experience() {
   return (
     <section className={styles.experienceSection} id="experience">
       <h2 className="sectionHeading">EXPERIENCE</h2>
+
       <div className={styles.timelineContainer} ref={timelineRef}>
-        
         <div className={styles.tLine1}></div>
         <div className={styles.tLine2}></div>
         <div className={styles.progressLine} ref={progressRef}></div>
@@ -84,8 +91,8 @@ export default function Experience() {
               <div className={styles.date}>Oct 2024 - present</div>
             </div>
             <ul>
-              <li>Studying the principles of computing, algorithms, artificial intelligence, and system design.</li>
-              <li>Gaining hands on experience by building real-world projects that apply theoretical knowledge to practical problems.</li>
+              <li>Studying the principles of computing, algorithms, AI, and system design.</li>
+              <li>Gaining hands-on experience building real-world projects.</li>
             </ul>
           </div>
 
@@ -97,7 +104,7 @@ export default function Experience() {
             </div>
             <ul>
               <li>Collaborate with clients to design and develop custom web applications.</li>
-              <li>Provide end-to-end solutions, from planning and coding to testing and deployment.</li>
+              <li>Provide end-to-end solutions.</li>
             </ul>
           </div>
         </div>
