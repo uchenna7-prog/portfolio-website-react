@@ -1,5 +1,6 @@
 import styles from "./Header.module.css";
-import { use, useState } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 
@@ -11,7 +12,7 @@ function Header() {
     const mobileMenuRef = useRef(null);
     const mobileMenuBtnRef = useRef(null);
     const themeButtonRef = useRef(null);
-    const mobileMenuBtns = useRef([]);
+    const mobileMenuOptionsRef = useRef([]);
    
 
     const openMenu = ()=>{
@@ -27,23 +28,23 @@ function Header() {
       }
     }
     const changeTheme = ()=>{
-      let dataTheme = document.documentElement.getAttribute("data-theme")
-      if(dataTheme ==="light-mode"){
+      if(theme ==="light-mode"){
         document.documentElement.setAttribute("data-theme","dark-mode")
+        toggleTheme("dark-mode")
         themeButtonRef.current.textContent = "light_mode"
       }
       else{
         document.documentElement.setAttribute("data-theme","light-mode")
+        toggleTheme("light-mode")
         themeButtonRef.current.textContent = "dark_mode"
       }
-      toggleTheme(document.documentElement.getAttribute("data-theme"))
     }
   return (
     <>
       <div className={styles.mobileMenu} ref={mobileMenuRef}>
         <div className={styles.menuOptionsContainer}>
           {mobileMenuOptions.map(
-            (option,index)=><a key={index} className={styles.mobileMenuOption} href={"#" + option.toLowerCase()}>{option}</a>
+            (option,index)=><a key={index} className={styles.mobileMenuOption} href={"#" + option.toLowerCase()} ref={el=>mobileMenuOptionsRef.current[index]=el} onClick={()=>openMenu()}>{option}</a>
           )}
         </div>
       </div>
