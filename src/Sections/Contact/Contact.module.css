@@ -129,6 +129,8 @@
 }
 .socialIcon:hover {
     background-color: #1a75d1;
+    transform: scale(1.2);
+      
 }
 @media(max-width:600px){
     .formRow1Container {
