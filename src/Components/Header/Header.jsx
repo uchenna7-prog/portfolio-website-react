@@ -5,12 +5,14 @@ import { useRef } from "react";
 
 
 function Header() {
+    const mobileMenuOptions = ["About","Services","Skills","Projects","Experience","Contact"]
     const [theme,toggleTheme] = useState("light-mode")
     const [menuOpen,setMenuOpen] = useState(false)
     const mobileMenuRef = useRef(null);
     const mobileMenuBtnRef = useRef(null);
     const themeButtonRef = useRef(null);
     const mobileMenuBtns = useRef([]);
+   
 
     const openMenu = ()=>{
       if(!menuOpen){
@@ -40,12 +42,9 @@ function Header() {
     <>
       <div className={styles.mobileMenu} ref={mobileMenuRef}>
         <div className={styles.menuOptionsContainer}>
-          <a href="#about" className={styles.mobileMenuOption}>About</a>
-          <a href="#services" className={styles.mobileMenuOption}>Services</a>
-          <a href="#skills" className={styles.mobileMenuOption}>Skills</a>
-          <a href="#projects" className={styles.mobileMenuOption}>Projects</a>
-          <a href="#experience" className={styles.mobileMenuOption}>Experience</a>
-          <a href="#contact" className={styles.mobileMenuOption}>Contact</a>
+          {mobileMenuOptions.map(
+            (option,index)=><a key={index} className={styles.mobileMenuOption} href={"#" + option.toLowerCase()}>{option}</a>
+          )}
         </div>
       </div>
 
