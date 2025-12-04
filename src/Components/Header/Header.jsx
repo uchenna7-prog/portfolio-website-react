@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Header() {
   const navItems = [
@@ -11,21 +11,31 @@ function Header() {
     { label: "Contact", icon: "fa-solid fa-envelope" },
   ];
 
-  const [theme, setTheme] = useState("light-mode");
-  const [menuOpen, setMenuOpen] = useState(false);
 
+
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light-mode";
+  });
+
+  const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(prev => !prev);
 
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   const toggleTheme = () => {
-    const newTheme = theme === "light-mode" ? "dark-mode" : "light-mode";
-    document.documentElement.setAttribute("data-theme", newTheme);
-    setTheme(newTheme);
+    setTheme(prev => (prev === "light-mode" ? "dark-mode" : "light-mode"));
   };
 
   return (
     <>
       <div
-       className={`${styles.mobileMenu} ${menuOpen ? styles.activeMobileMenu : ""}`}
+        className={`${styles.mobileMenu} ${
+          menuOpen ? styles.activeMobileMenu : ""
+        }`}
       >
         <div className={styles.menuOptionsContainer}>
           {navItems.map((item, index) => (
@@ -45,6 +55,7 @@ function Header() {
 
       <header className={styles.headerSection}>
         <div className={styles.headerContainer}>
+
           <span className={`${styles.logo} material-icons`}>home</span>
 
           <nav className={styles.navLinksContainer}>
@@ -58,6 +69,7 @@ function Header() {
               </a>
             ))}
 
+       
             <span
               className={`${styles.toggleThemeBtn} material-icons`}
               onClick={toggleTheme}

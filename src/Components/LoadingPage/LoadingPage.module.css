@@ -9,24 +9,3 @@
     overflow: hidden;
 }
 
-.loadingText {
-    margin-top: 20px;
-    font-size: 1rem;
-    color: #fff;
-    font-family: monospace;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-
-    0%,
-    50%,
-    100% {
-        opacity: 1;
-    }
-
-    25%,
-    75% {
-        opacity: 0;
-    }
-}

@@ -21,7 +21,6 @@ export default function Home() {
         <Projects/>
         <Experience/>
         <Contact/>
-        <PixelName text="UCHENNA" speed={25} />
       </div>
 
     </div>

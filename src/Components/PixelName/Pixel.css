@@ -26,7 +26,7 @@
 }
 
 .pixel.on {
-    background: black;
+    background: var(--color1);
     transform: scale(1.1);
 }
 

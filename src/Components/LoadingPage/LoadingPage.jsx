@@ -14,7 +14,6 @@ export default function LoadingScreen({ children }) {
     return (
       <div className={styles.loadingPage}>
         <PixelName />
-        <p className={styles.loadingText}>Loading...</p>
       </div>
     );
   }
