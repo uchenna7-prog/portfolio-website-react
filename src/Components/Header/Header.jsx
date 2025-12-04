@@ -1,73 +1,80 @@
 import styles from "./Header.module.css";
 import { useState } from "react";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useRef } from "react";
-
 
 function Header() {
-    const mobileMenuOptions = ["About","Services","Skills","Projects","Experience","Contact"]
-    const [theme,toggleTheme] = useState("light-mode")
-    const [menuOpen,setMenuOpen] = useState(false)
-    const mobileMenuRef = useRef(null);
-    const mobileMenuBtnRef = useRef(null);
-    const themeButtonRef = useRef(null);
-    const mobileMenuOptionsRef = useRef([]);
-   
+  const navItems = [
+    { label: "About", icon: "fa-solid fa-user" },
+    { label: "Services", icon: "fa-solid fa-briefcase" },
+    { label: "Skills", icon: "fa-solid fa-code" },
+    { label: "Projects", icon: "fa-solid fa-diagram-project" },
+    { label: "Experience", icon: "fa-solid fa-clock-rotate-left" },
+    { label: "Contact", icon: "fa-solid fa-envelope" },
+  ];
 
-    const openMenu = ()=>{
-      if(!menuOpen){
-        mobileMenuRef.current.classList.add(styles.activeMobileMenu)
-        mobileMenuBtnRef.current.textContent = "close"
-        setMenuOpen(true)
-      }
-      else{
-        mobileMenuRef.current.classList.remove(styles.activeMobileMenu)
-        mobileMenuBtnRef.current.textContent = "menu"
-        setMenuOpen(false)
-      }
-    }
-    const changeTheme = ()=>{
-      if(theme ==="light-mode"){
-        document.documentElement.setAttribute("data-theme","dark-mode")
-        toggleTheme("dark-mode")
-        themeButtonRef.current.textContent = "light_mode"
-      }
-      else{
-        document.documentElement.setAttribute("data-theme","light-mode")
-        toggleTheme("light-mode")
-        themeButtonRef.current.textContent = "dark_mode"
-      }
-    }
+  const [theme, setTheme] = useState("light-mode");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(prev => !prev);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light-mode" ? "dark-mode" : "light-mode";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    setTheme(newTheme);
+  };
+
   return (
     <>
-      <div className={styles.mobileMenu} ref={mobileMenuRef}>
+      <div
+       className={`${styles.mobileMenu} ${menuOpen ? styles.activeMobileMenu : ""}`}
+      >
         <div className={styles.menuOptionsContainer}>
-          {mobileMenuOptions.map(
-            (option,index)=><a key={index} className={styles.mobileMenuOption} href={"#" + option.toLowerCase()} ref={el=>mobileMenuOptionsRef.current[index]=el} onClick={()=>openMenu()}>{option}</a>
-          )}
+          {navItems.map((item, index) => (
+            <span className={styles.mobileMenuOptionContainer} key={index}>
+              <i className={item.icon}></i>
+              <a
+                href={`#${item.label.toLowerCase()}`}
+                className={styles.mobileMenuOption}
+                onClick={toggleMenu}
+              >
+                {item.label}
+              </a>
+            </span>
+          ))}
         </div>
       </div>
 
       <header className={styles.headerSection}>
         <div className={styles.headerContainer}>
           <span className={`${styles.logo} material-icons`}>home</span>
-          <nav className={styles.navLinksContainer}>
-            <a href="#about" className={styles.navLink}>About</a>
-            <a href="#services" className={styles.navLink}>Services</a>
-            <a href="#skills" className={styles.navLink}>Skills</a>
-            <a href="#projects" className={styles.navLink}>Projects</a>
-            <a href="#experience" className={styles.navLink}>Experience</a>
-            <a href="#contact" className={styles.navLink}>Contact</a>
-            <span className={`${styles.toggleThemeBtn} material-icons`} onClick={()=>changeTheme()} ref={themeButtonRef}>dark_mode</span>
-            <span className={`${styles.menuBtn} material-icons`} onClick={()=>openMenu()} ref={mobileMenuBtnRef} >menu</span>
-          </nav>
 
+          <nav className={styles.navLinksContainer}>
+            {navItems.map((item, i) => (
+              <a
+                href={`#${item.label.toLowerCase()}`}
+                className={styles.navLink}
+                key={i}
+              >
+                {item.label}
+              </a>
+            ))}
+
+            <span
+              className={`${styles.toggleThemeBtn} material-icons`}
+              onClick={toggleTheme}
+            >
+              {theme === "light-mode" ? "dark_mode" : "light_mode"}
+            </span>
+
+            <span
+              className={`${styles.menuBtn} material-icons`}
+              onClick={toggleMenu}
+            >
+              {menuOpen ? "close" : "menu"}
+            </span>
+          </nav>
         </div>
       </header>
     </>
-
-   
   );
 }
 

@@ -28,6 +28,7 @@ function Contact(){
                             <div>Email</div>
                             <a>uchenduuchenna7@gmail.com</a>
                         </div>
+                        <span className="material-icons">content_copy</span>
                     </div>
                     <div className={styles.ContactDetailContainer}>
                         <i className="material-icons">phone</i>
@@ -35,6 +36,7 @@ function Contact(){
                             <div>Phone</div>
                             <a>+234 - 9079116980</a>
                         </div>
+                        <span className="material-icons">content_copy</span>
                     </div>
                     
                     <div className={styles.ContactDetailContainer}>

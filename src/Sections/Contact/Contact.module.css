@@ -96,12 +96,18 @@
     font-size: 20px;
 }
 .ContactDetailContainer{
+    --copyIconDisplay:none;
+    position: relative;
     margin-top: 20px;
     display:flex;
     gap:20px;
     border-radius: 10px;
     background-color: var(--divBackground);
     padding: 20px;
+}
+
+.ContactDetailContainer:hover{
+    --copyIconDisplay: block;
 }
 .ContactDetailContainer i{
     display: flex;
@@ -114,6 +120,17 @@
     color: var(--color);
   
 }
+.ContactDetailContainer span{
+    display: var(--copyIconDisplay);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1rem; 
+    cursor: pointer;
+    font-weight: 400;   
+
+}
+
 .socialIconsContainer {
     display: flex;
     gap: 14px;

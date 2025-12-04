@@ -62,6 +62,12 @@
     transform: translateY(0);
     transition: transform 1s ease-in-out;
 }
+
+.mobileMenuOptionContainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 .menuOptionsContainer{
     padding: 20px;
     font-size: 1.5rem;
