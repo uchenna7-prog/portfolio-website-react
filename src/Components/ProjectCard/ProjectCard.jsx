@@ -28,19 +28,23 @@ function ProjectCard(props){
                         ))}
                     </div>
 
-                    <span className={styles.prevArrow} onClick={prev}>&#10094;</span>
-                    <span className={styles.nextArrow} onClick={next}>&#10095;</span>
+                    <div className={styles.arrowsAndDotsContainer}>
+                        <span className={`${styles.prevArrow} material-icons`} onClick={prev}>arrow_left</span>
+                        <span className={`${styles.nextArrow} material-icons`} onClick={next}>arrow_right</span>
 
-                    <div className={styles.dotsContainer}>
-                        {props.images.map((_, i) => (
-                        <span
-                            key={i}
-                            className={`${styles.dot} ${index === i ? styles.activeDot : ""}`}
-                            onClick={() => setIndex(i)}
-                        ></span>
-                        ))}
+                        <div className={styles.dotsContainer}>
+                            {props.images.map((_, i) => (
+                            <span
+                                key={i}
+                                className={`${styles.dot} ${index === i ? styles.activeDot : ""}`}
+                                onClick={() => setIndex(i)}
+                            ></span>
+                            ))}
+                        </div>
+                            
                     </div>
-                    </div>
+                   
+                </div>
                 
                 <div className={styles.projectDescriptionContainer}>
                     <div className={`${styles.descriptionTitle} title`}>{props.projectTitle}</div>

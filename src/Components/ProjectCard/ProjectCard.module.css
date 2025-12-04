@@ -27,6 +27,9 @@
 }
 
 .sliderContainer {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
     position: relative;
     width: 40%;
     overflow: hidden;
@@ -38,23 +41,24 @@
     height: 100%;
     
 }
-
 .prevArrow {
+    font-size: 1.5rem;
+    top: 50%;
     left: 10px;
+    transform: translateY(-50%);
+}
+.nextArrow {
+    font-size: 1.5rem;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
 }
 
-.nextArrow {
-    right: 10px;
-}
 .prevArrow,.nextArrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-    color: white;
+    color: var(--color1);
     cursor: pointer;
     padding: 5px;
-    background: rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     user-select: none;
 }
@@ -62,7 +66,8 @@
 
 .dotsContainer {
     position: absolute;
-    bottom: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -73,7 +78,7 @@
 .dot {
     height: 10px;
     width: 10px;
-    background: black;
+    background: gray;
     border-radius: 50%;
     opacity: 0.4;
     cursor: pointer;
@@ -81,10 +86,15 @@
 
 .activeDot {
     opacity: 1;
-    background: #0e60b3;
+    background: var(--color1);
 }
 
+.arrowsAndDotsContainer{
+    background: var(--bg);
+    position: relative;
+    height: 30px;
 
+}
 
 .projectDescriptionContainer {
     display: flex;
