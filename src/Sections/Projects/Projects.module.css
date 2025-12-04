@@ -1,12 +1,14 @@
-.projectsSection{
+.projectsSection {
     background: var(--bg);
     padding: 50px 0;
 }
 
-.seeAllProjectsBtn{
+/* See All Projects button */
+.seeAllProjectsBtn {
+    position: relative;
     display: flex;
     align-items: center;
-    gap:20px;
+    gap: 20px;
     padding: 10px 0;
     justify-content: center;
     margin: 50px auto;
@@ -17,21 +19,18 @@
     color: var(--buttonTextColor1);
     border-radius: 10px;
     width: 50vw;
+    border: 1px solid var(--projectLiveDemoBtn);
+
 }
 
-.seeAllProjectsBtn:hover{
+.seeAllProjectsBtn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(14, 96, 179, 0.3);
 }
 
-@media(max-width:900px){
-    .seeAllProjectsBtn{
+
+@media(max-width:900px) {
+    .seeAllProjectsBtn {
         width: 80vw;
     }
-
 }
-
-
-
-
-

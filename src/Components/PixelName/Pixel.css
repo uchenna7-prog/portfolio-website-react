@@ -2,8 +2,8 @@
     display: flex;
     gap: 12px;
     justify-content: center;
+    align-items: center;
     padding: 20px;
-    margin-top: 20vh;
 }
 
 .letter {
@@ -18,8 +18,8 @@
 }
 
 .pixel {
-    width: 6px;
-    height: 6px;
+    width: 10px;
+    height: 10px;
     background: rgba(2, 5, 53, 0.1);
     border-radius: 1px;
     transition: all 0.2s ease;
@@ -38,8 +38,8 @@
     }
 
     .pixel {
-        width: 6px;
-        height: 6px;
+        width: 9px;
+        height: 9px;
     }
 
     .letter,
@@ -55,8 +55,8 @@
     }
 
     .pixel {
-        width: 5px;
-        height: 5px;
+        width: 8px;
+        height: 8px;
     }
 
     .letter,
@@ -72,8 +72,8 @@
     }
 
     .pixel {
-        width: 4px;
-        height: 4px;
+        width: 7px;
+        height: 7px;
     }
 
     .letter,
