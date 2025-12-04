@@ -1,0 +1,104 @@
+.pixel-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20vh;
+}
+
+.letter {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.row {
+    display: flex;
+    gap: 2px;
+}
+
+.pixel {
+    width: 6px;
+    height: 6px;
+    background: rgba(2, 5, 53, 0.1);
+    border-radius: 1px;
+    transition: all 0.2s ease;
+}
+
+.pixel.on {
+    background: black;
+    box-shadow:
+        0 0 5px #536dfe,
+        0 0 10px #536dfe,
+        0 0 20px rgba(83, 109, 254, 0.3);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .pixel-container {
+        gap: 8px;
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+
+    .pixel {
+        width: 4px;
+        height: 4px;
+    }
+
+    .letter,
+    .row {
+        gap: 1.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pixel-container {
+        gap: 5px;
+        transform: scale(0.75);
+    }
+
+    .pixel {
+        width: 3px;
+        height: 3px;
+    }
+
+    .letter,
+    .row {
+        gap: 1px;
+    }
+}
+
+@media (max-width: 360px) {
+    .pixel-container {
+        gap: 3px;
+        transform: scale(0.65);
+    }
+
+    .pixel {
+        width: 3px;
+        height: 3px;
+    }
+
+    .letter,
+    .row {
+        gap: 0.8px;
+    }
+}
+
+/* Optional floating effect */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+.pixel-container {
+    animation: float 3s ease-in-out infinite;
+}
