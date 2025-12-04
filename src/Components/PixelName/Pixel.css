@@ -27,10 +27,6 @@
 
 .pixel.on {
     background: black;
-    box-shadow:
-        0 0 5px #536dfe,
-        0 0 10px #536dfe,
-        0 0 20px rgba(83, 109, 254, 0.3);
     transform: scale(1.1);
 }
 
@@ -42,8 +38,8 @@
     }
 
     .pixel {
-        width: 4px;
-        height: 4px;
+        width: 6px;
+        height: 6px;
     }
 
     .letter,
@@ -59,8 +55,8 @@
     }
 
     .pixel {
-        width: 3px;
-        height: 3px;
+        width: 5px;
+        height: 5px;
     }
 
     .letter,
@@ -76,8 +72,8 @@
     }
 
     .pixel {
-        width: 3px;
-        height: 3px;
+        width: 4px;
+        height: 4px;
     }
 
     .letter,
@@ -86,7 +82,7 @@
     }
 }
 
-/* Optional floating effect */
+
 @keyframes float {
 
     0%,
