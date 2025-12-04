@@ -1,9 +1,12 @@
+
+
 .pixel-container {
     display: flex;
     gap: 12px;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    transform-origin: center;
 }
 
 .letter {
@@ -30,11 +33,25 @@
     transform: scale(1.1);
 }
 
+.pixel-container.finish {
+    animation: zoomFade 0.6s forwards;
+}
+
+@keyframes zoomFade {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .pixel-container {
         gap: 8px;
-        transform: scale(0.9);
-        transform-origin: center;
     }
 
     .pixel {
@@ -51,7 +68,6 @@
 @media (max-width: 480px) {
     .pixel-container {
         gap: 5px;
-        transform: scale(0.75);
     }
 
     .pixel {
@@ -68,7 +84,6 @@
 @media (max-width: 360px) {
     .pixel-container {
         gap: 3px;
-        transform: scale(0.65);
     }
 
     .pixel {
@@ -80,21 +95,4 @@
     .row {
         gap: 0.8px;
     }
-}
-
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-2px);
-    }
-}
-
-.pixel-container {
-    animation: float 3s ease-in-out infinite;
 }
