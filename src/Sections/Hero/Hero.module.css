@@ -1,4 +1,7 @@
 .heroSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: sticky;
     background: var(--heroBackground);
     top:0;
@@ -7,9 +10,7 @@
     padding: 30px;
     z-index: 1;
 }
-.heroSection > div{
-    margin-top: 20vh;
-}
+
 
 @keyframes fadeIn {
     from {

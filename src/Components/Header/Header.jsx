@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
-import logo from "/logo.jpeg"
-import logo2 from "/logo2.jpeg"
+import logo from "/logo.png"
+import logo2 from "/logo2.png"
 function Header() {
   const navItems = [
     { label: "About", icon: "fa-solid fa-user" },

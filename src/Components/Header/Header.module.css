@@ -43,8 +43,8 @@
 }
 .logo{
     margin-left: 30px;
-    width: 5vh;
-    height: 5vh;
+    width: 2rem;
+    height: 2rem;
     border-radius: 5px;
 }
 
@@ -103,8 +103,6 @@
     }
     .logo {
         margin-left: 10px;
-        width: 4vh;
-        height: 4vh;
     }
     .navLink{
         display: none;
