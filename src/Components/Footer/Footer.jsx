@@ -1,13 +1,13 @@
 import styles from "./Footer.module.css"
+import logo from "/logo.jpeg"
+import logo2 from "/logo2.jpeg"
 
 function Footer(){
     return(
         <footer className={styles.footerSection}>
             <div>
                 <div className={styles.nameContainer}>
-                    <span className={styles.tag}>{"<"}</span>
-                    <span>UC</span>
-                    <span  className={styles.tag}>{"/>"}</span>
+                   <img src={document.documentElement.getAttribute("data-theme") ==="light-mode" ? logo: logo2} className={styles.logo}></img>
                 </div>
                 
                 <div className={styles.socialIconsContainer}>

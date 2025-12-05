@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
-
+import logo from "/logo.jpeg"
+import logo2 from "/logo2.jpeg"
 function Header() {
   const navItems = [
     { label: "About", icon: "fa-solid fa-user" },
@@ -56,7 +57,7 @@ function Header() {
       <header className={styles.headerSection}>
         <div className={styles.headerContainer}>
 
-          <span className={`${styles.logo} material-icons`}>home</span>
+          <img src={theme ==="light-mode" ? logo: logo2} className={styles.logo}></img>
 
           <nav className={styles.navLinksContainer}>
             {navItems.map((item, i) => (

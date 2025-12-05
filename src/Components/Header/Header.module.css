@@ -14,6 +14,7 @@
 .headerContainer{
     padding: 15px;
     display:flex;
+    align-items: start;
     flex-direction: row;
     justify-content: space-between;
 
@@ -37,6 +38,11 @@
 }
 .navLink:hover{
     color:#0e60b3;
+}
+.logo{
+    width: 5vh;
+    height: 5vh;
+    border-radius: 5px;
 }
 
 .toggleThemeBtn,.menuBtn,.logo{
@@ -86,6 +92,10 @@
 
 }
 @media(max-width:900px){
+    .logo {
+        width: 4vh;
+        height: 4vh;
+    }
     .navLink{
         display: none;
     }

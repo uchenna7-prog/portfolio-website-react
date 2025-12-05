@@ -56,11 +56,17 @@
     border: 0;
     background:linear-gradient(to right,transparent,var(--horizontalRuleColor),transparent);
 }
-.tag{
-    color: #0e60b3;
+.logo {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 5px;
 }
 
-@media(max-width:600px){
+@media(max-width:900px){
+    .logo {
+            width: 4vh;
+            height: 4vh;
+        }
 
     .nameContainer{
         margin-left: 1em;
