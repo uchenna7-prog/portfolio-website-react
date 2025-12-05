@@ -1,0 +1,134 @@
+.headerSection {
+    color: var(--color2);
+    background-color: transparent;
+    backdrop-filter: blur(50px);
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3000;
+}
+
+.headerContainer {
+    height: 100%;
+    width: 100%;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.navLinksContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    justify-content: space-around;
+    padding-right: 30px;
+    width: fit-content;
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--color2);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+}
+
+.navLink:hover {
+    color: #0e60b3;
+}
+
+.logo {
+    margin-left: 30px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5px;
+}
+
+.toggleThemeBtn,
+.menuBtn,
+.logo {
+    cursor: pointer;
+}
+
+.menuBtn {
+    display: none;
+}
+
+.mobileMenu {
+    transform: translateY(-100vh);
+    background-color: var(--bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    height: 100vh;
+    width: 100vw;
+    transition: transform 0.7s ease-in-out;
+
+}
+
+.activeMobileMenu {
+    transform: translateY(0);
+    transition: transform 1s ease-in-out;
+}
+
+.mobileMenuOptionContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menuOptionsContainer {
+    padding: 20px;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileMenuOption {
+    margin: 20px 0;
+    text-decoration: none;
+    color: var(--color1);
+    cursor: pointer;
+    font-weight: 500;
+
+}
+
+@media(max-width:900px) {
+    .navLinksContainer {
+        gap: 15px;
+        justify-content: flex-end;
+        padding-right: 0;
+
+    }
+
+    .logo {
+        margin-left: 10px;
+    }
+
+    .navLink {
+        display: none;
+    }
+
+    .menuBtn {
+        display: block;
+    }
+
+    .headerContainer {
+        padding-right: 10px;
+    }
+
+    .headerSection {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}

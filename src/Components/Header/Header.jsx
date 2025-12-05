@@ -2,7 +2,11 @@ import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
 import logo from "/logo.png"
 import logo2 from "/logo2.png"
+import { useTheme } from "../../Context/ThemeContext";
 function Header() {
+
+  const {theme,toggleTheme} = useTheme()
+
   const navItems = [
     { label: "About", icon: "fa-solid fa-user" },
     { label: "Services", icon: "fa-solid fa-briefcase" },
@@ -13,23 +17,8 @@ function Header() {
   ];
 
 
-
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || "light-mode";
-  });
-
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(prev => !prev);
-
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => (prev === "light-mode" ? "dark-mode" : "light-mode"));
-  };
 
   return (
     <>
@@ -57,7 +46,7 @@ function Header() {
       <header className={styles.headerSection}>
         <div className={styles.headerContainer}>
 
-          <img src={theme ==="light-mode" ? logo: logo2} className={styles.logo}></img>
+          <img src={theme ==="light-mode" ? logo: logo2} className={styles.logo} alt="logo"></img>
 
           <nav className={styles.navLinksContainer}>
             {navItems.map((item, i) => (

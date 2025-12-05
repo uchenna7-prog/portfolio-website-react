@@ -1,12 +1,17 @@
 import styles from "./Footer.module.css"
 import logo from "/logo.png"
+import logo2 from "/logo2.png"
+import { useTheme } from "../../Context/ThemeContext"   
+
 
 function Footer(){
+    const {theme} = useTheme()
     return(
+
         <footer className={styles.footerSection}>
             <div>
                 <div className={styles.nameContainer}>
-                   <img src={logo} className={styles.logo}></img>
+                   <img src={theme==="light-mode"? logo : logo2} className={styles.logo}></img>
                 </div>
                 
                 <div className={styles.socialIconsContainer}>
