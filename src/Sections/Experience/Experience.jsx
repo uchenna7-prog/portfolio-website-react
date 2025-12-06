@@ -61,8 +61,16 @@ const experienceCards = [
   
 
   const updateTimeline =() =>{
+
     const timelineRect = timelineRef.current.getBoundingClientRect()
-    const left = parseFloat(cardsContainerRef.current.getBoundingClientRect().left) - 25
+    let left;
+    if(window.innerWidth < 1000){
+      left = parseFloat(cardsContainerRef.current.getBoundingClientRect().left) - 20
+    }
+    else{
+      left = parseFloat(cardsContainerRef.current.getBoundingClientRect().left) - 25
+    }
+    
     const progress = Math.min(Math.max(window.innerHeight / 2 - timelineRect.top,0),timelineRect.height)
 
     progresslineRef.current.style.height = progress + "px"
