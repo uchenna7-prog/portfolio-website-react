@@ -111,7 +111,7 @@ function About() {
           variants={headingVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           style={{ 
             display: 'inline-flex', 
             overflow: 'hidden',
@@ -135,7 +135,7 @@ function About() {
           className={styles.headingUnderline}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
@@ -150,7 +150,7 @@ function About() {
           variants={reduceMotion ? {} : imageVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.5 }}
           whileHover={reduceMotion ? {} : { 
             scale: 1.05,
             rotate: 5,
@@ -169,7 +169,7 @@ function About() {
           variants={reduceMotion ? {} : textContainerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <motion.p
             variants={paragraphVariants}

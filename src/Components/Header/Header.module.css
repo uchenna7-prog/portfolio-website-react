@@ -97,8 +97,7 @@
 @media(max-width:900px){
     .navLinksContainer {
         gap:15px;
-        justify-content: flex-end;
-        padding-right: 0;
+        margin-right: 10px;   
 
     }
     .logo {

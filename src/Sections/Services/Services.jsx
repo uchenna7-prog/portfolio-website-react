@@ -93,7 +93,7 @@ function Services() {
           variants={headingVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           style={{ 
             display: 'inline-flex', 
             overflow: 'hidden',
@@ -117,7 +117,7 @@ function Services() {
           className={styles.headingUnderline}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
@@ -128,7 +128,7 @@ function Services() {
         variants={reduceMotion ? {} : containerVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         {services.map((serviceData, index) => (
           <motion.div

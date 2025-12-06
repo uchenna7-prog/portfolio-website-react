@@ -213,7 +213,7 @@ export default function Experience() {
           variants={headingVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           style={{ 
             display: 'inline-flex', 
             overflow: 'hidden',
@@ -237,7 +237,7 @@ export default function Experience() {
           className={styles.headingUnderline}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
@@ -249,7 +249,7 @@ export default function Experience() {
           variants={timelineVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
           style={{ originY: 0 }}
         ></motion.div>
         

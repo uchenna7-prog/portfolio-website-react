@@ -82,7 +82,7 @@ function Skills() {
                     variants={headingVariants}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.8 }}
+                    viewport={{ once: true, amount: 0.8 }}
                     style={{ 
                         display: 'inline-flex', 
                         overflow: 'hidden',
@@ -106,7 +106,7 @@ function Skills() {
                     className={styles.headingUnderline}
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
-                    viewport={{ once: false, amount: 0.8 }}
+                    viewport={{ once: true, amount: 0.8 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 />
             </div>
@@ -118,7 +118,7 @@ function Skills() {
                     variants={reduceMotion ? {} : sliderContainerVariants}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: true, amount: 0.3 }}
                     transition={{ delay: 0.2 }}
                 >
                     <div className={styles.slider1}>
@@ -159,7 +159,7 @@ function Skills() {
                     variants={reduceMotion ? {} : sliderContainerVariants}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: true, amount: 0.3 }}
                     transition={{ delay: 0.4 }}
                 >
                     <div className={styles.slider2}>
@@ -200,7 +200,7 @@ function Skills() {
                     variants={reduceMotion ? {} : sliderContainerVariants}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: true, amount: 0.3 }}
                     transition={{ delay: 0.6 }}
                 >
                     <div className={styles.slider3}>
