@@ -9,7 +9,10 @@ const ExperienceCard = forwardRef((props,ref)=>{
         <div className={styles.card} ref={ref}>
             <h2 className="title">{props.experienceTitle}</h2>
             <div className={styles.organizationAndDateContainer}>
-              <div className={styles.organization}>{props.organization}</div>
+                <div className={styles.organizationContainer}>
+                    <img src={props.organizationLogo}></img>
+                    <div className={styles.organization}>{props.organization}</div>
+                </div>
               <div className={styles.date}>{props.date}</div>
             </div>
             <ul>

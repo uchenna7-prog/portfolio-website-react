@@ -1,6 +1,9 @@
 import styles from "./Experience.module.css";
 import ExperienceCard from "./ExperienceCard";
 import { useRef,useEffect } from "react";
+import uniportLogo from "/uniportLogo.png"
+import codeLogo from "/codeLogo.png"
+import brandLogo from "/brandLogo.png"
 
 export default function Experience() {
 
@@ -10,6 +13,7 @@ const experienceCards = [
     id: 1,
     experienceTitle: "Freelance Developer",
     organization: "Frontend Developer",
+    organizationLogo: codeLogo,
     date: "Jan 2025 - Present",
     cardPoints: [
       "Collaborate with clients to design and develop responsive websites.",
@@ -22,8 +26,9 @@ const experienceCards = [
 
   {
     id: 3,
-    experienceTitle: "Bachelor of Computer Science",
+    experienceTitle: "Education",
     organization: "University Of Port Harcourt",
+    organizationLogo: uniportLogo,
     date: "2025 - Present",
     cardPoints: [
       "Learn core programming concepts and apply them in real-world projects.",
@@ -36,8 +41,9 @@ const experienceCards = [
   ,
   {
     id: 2,
-    experienceTitle: "Personal Projects & Learning",
+    experienceTitle: "Personal Projects",
     organization: "Independent Development",
+    organizationLogo: brandLogo,
     date: "2024 - Present",
     cardPoints: [
       "Design and implement small apps to practice new technologies.",
@@ -121,6 +127,7 @@ const experienceCards = [
 
   return(
     <section className={styles.experienceSection}>
+      <h2 className="sectionHeading">EXPERIENCE</h2>
       <div className={styles.timelineContainer} ref={timelineRef}>
 
         <div className={styles.tLine1} ref={tLine1Ref}></div>
@@ -143,6 +150,7 @@ const experienceCards = [
           ref={(el)=>cardsRef.current[index]=el} 
           experienceTitle={card.experienceTitle} 
           organization={card.organization} 
+          organizationLogo={card.organizationLogo}
           cardPoints={card.cardPoints} 
           date={card.date}>
           </ExperienceCard>

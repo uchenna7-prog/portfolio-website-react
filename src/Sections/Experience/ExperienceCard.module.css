@@ -12,7 +12,15 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
+.organizationContainer{
+    display: flex;
+    gap:5px;
+    align-items: center;
+}
+.organizationContainer > img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
 .organization {
     color: #0e60b3;
     font-weight: 800;
