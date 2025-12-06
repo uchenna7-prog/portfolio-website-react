@@ -1,114 +1,150 @@
-import React, { useEffect, useRef } from "react";
 import styles from "./Experience.module.css";
+import ExperienceCard from "./ExperienceCard";
+import { useRef,useEffect } from "react";
 
 export default function Experience() {
-  const timelineRef = useRef(null);
-  const progressRef = useRef(null);
-  const movingRef = useRef(null);
 
-  const circles = useRef([]);
-  const items = useRef([]);
+const experienceCards = [
+ 
+  {
+    id: 1,
+    experienceTitle: "Freelance Developer",
+    organization: "Frontend Developer",
+    date: "Jan 2025 - Present",
+    cardPoints: [
+      "Collaborate with clients to design and develop responsive websites.",
+      "Provide end-to-end solutions from planning to deployment and testing.",
+      "Ensure websites perform efficiently and deliver modern user experience.",
+      "Develop layouts optimized for both desktop and mobile devices.",
+      "Continuously learn and apply new tools to improve project quality."
+    ]
+  },
 
-  const setCircleRef = (el, idx) => (circles.current[idx] = el);
-  const setItemRef = (el, idx) => (items.current[idx] = el);
+  {
+    id: 3,
+    experienceTitle: "Bachelor of Computer Science",
+    organization: "University Of Port Harcourt",
+    date: "2025 - Present",
+    cardPoints: [
+      "Learn core programming concepts and apply them in real-world projects.",
+      "Practice algorithms and data structures to solve complex coding problems.",
+      "Understand computer networks and design secure communication systems.",
+      "Study artificial intelligence techniques and build small AI models.",
+      "Explore system architecture and understand how computers execute programs."
+    ]
+  }
+  ,
+  {
+    id: 2,
+    experienceTitle: "Personal Projects & Learning",
+    organization: "Independent Development",
+    date: "2024 - Present",
+    cardPoints: [
+      "Design and implement small apps to practice new technologies.",
+      "Create responsive and visually appealing layouts for various projects.",
+      "Apply best coding practices to ensure maintainable and readable code.",
+      "Test and refine features to achieve reliable performance and usability.",
+      "Document and showcase completed projects to build a professional portfolio."
+    ]
+  }
+];
 
-  const updateTimeline = () => {
-    if (!timelineRef.current || !progressRef.current || !movingRef.current) return;
+  
+  const timelineRef = useRef(null)
+  const cardsRef = useRef([])
+  const tCirclesRef = useRef([])
+  const movingCircleRef = useRef(null)
+  const progresslineRef = useRef(null)
+  const cardsContainerRef = useRef(null)
+  const tLine1Ref = useRef(null)
+  const tLine2Ref = useRef(null)
+  
 
-    const timelineRect = timelineRef.current.getBoundingClientRect();
-    const timelineHeight = timelineRef.current.offsetHeight;
+  const updateTimeline =() =>{
+    const timelineRect = timelineRef.current.getBoundingClientRect()
+    const left = parseFloat(cardsContainerRef.current.getBoundingClientRect().left) - 25
+    const progress = Math.min(Math.max(window.innerHeight / 2 - timelineRect.top,0),timelineRect.height)
 
-    const progressHeight = Math.min(
-      Math.max(window.innerHeight / 2 - timelineRect.top, 0),
-      timelineHeight
-    );
+    progresslineRef.current.style.height = progress + "px"
+    progresslineRef.current.style.left = left + "px"
 
-    // animate progress
-    progressRef.current.style.height = progressHeight + "px";
-    movingRef.current.style.top = progressHeight + "px";
+    movingCircleRef.current.style.top = progress + "px"
+    movingCircleRef.current.style.left = left + "px"
 
-    // vertical circle alignment
-    items.current.forEach((item, i) => {
-      if (!item || !circles.current[i]) return;
+    tLine1Ref.current.style.left = left + "px"
+    tLine2Ref.current.style.left = left + 10 + "px"
+    
 
-      const rect = item.getBoundingClientRect();
-      const top = rect.top - timelineRect.top;
-
-      circles.current[i].style.top = `${top}px`;
-
-      if (progressHeight >= top) {
-        circles.current[i].classList.add(styles.filled);
-      } else {
-        circles.current[i].classList.remove(styles.filled);
+    cardsRef.current.forEach((card,index)=>{
+      const rect = card.getBoundingClientRect()
+      const top = rect.top - timelineRect.top
+      tCirclesRef.current[index].style.top = top + "px"
+      tCirclesRef.current[index].style.left = left + "px"
+    
+      if(progress >= top){
+        tCirclesRef.current[index].classList.add(styles.filled)
       }
-    });
-  };
+      else{
+        tCirclesRef.current[index].classList.remove(styles.filled)
+      }
+  })
+  }
 
-  useEffect(() => {
-    updateTimeline();
-    window.addEventListener("scroll", updateTimeline);
-    window.addEventListener("resize", updateTimeline);
-    return () => {
-      window.removeEventListener("scroll", updateTimeline);
-      window.removeEventListener("resize", updateTimeline);
-    };
-  }, []);
+  useEffect(
+    ()=>{
+      window.addEventListener("scroll",updateTimeline)
+      window.addEventListener("resize",updateTimeline)
+      return ()=>{
+        window.removeEventListener("scroll",updateTimeline)
+        window.removeEventListener("resize",updateTimeline)
+      }
+    }
+  ,[])
+  
+  const generateTcirclesIDsArray = () => {
+    let IDsArray = []
+    for(let i = 0; i < experienceCards.length ; i++){
+      IDsArray.push(i)
+  }
+    return IDsArray 
+}
 
-  return (
-    <section className={styles.experienceSection} id="experience">
-      <h2 className="sectionHeading">EXPERIENCE</h2>
+  const tCircleIDsArray = generateTcirclesIDsArray()
 
+  return(
+    <section className={styles.experienceSection}>
       <div className={styles.timelineContainer} ref={timelineRef}>
-        <div className={styles.tLine1}></div>
-        <div className={styles.tLine2}></div>
-        <div className={styles.progressLine} ref={progressRef}></div>
-        <div className={styles.movingCircle} ref={movingRef}></div>
 
-        {[0, 1, 2].map((_, i) => (
-          <div key={i} className={styles.tCircle} ref={(el) => setCircleRef(el, i)}></div>
-        ))}
+        <div className={styles.tLine1} ref={tLine1Ref}></div>
+        <div className={styles.tLine2} ref={tLine2Ref}></div>
+        <div className={styles.progressLine} ref={progresslineRef}></div>
+        <div className={styles.movingCircle} ref={movingCircleRef}></div>
 
-        <div className={styles.itemsContainer}>
-          <div className={styles.item} ref={(el) => setItemRef(el, 0)}>
-            <h2 className="title">Freelance Developer</h2>
-            <div className={styles.organizationAndDateContainer}>
-              <div className={styles.organization}>Frontend Developer</div>
-              <div className={styles.date}>Jan 2025 - present</div>
-            </div>
-            <ul>
-              <li>Collaborate with clients to design and develop custom web applications.</li>
-              <li>Provide end-to-end solutions, from planning and coding to testing and deployment.</li>
-              <li>Ensure efficient performance and a modern user experience.</li>
-              <li>Build responsive designs optimized for both desktop and mobile devices.</li>
-              <li>Continuously learn and apply new technologies to improve project quality.</li>
-            </ul>
-          </div>
+        {tCircleIDsArray.map((element,index) => <div 
+        className={styles.tCircle} 
+        key={index} 
+        ref={(el)=>tCirclesRef.current[index]=el}>
+        </div> 
+        )}
 
-          <div className={styles.item} ref={(el) => setItemRef(el, 1)}>
-            <h2 className="title">Education</h2>
-            <div className={styles.organizationAndDateContainer}>
-              <div className={styles.organization}>University Of Port Harcourt</div>
-              <div className={styles.date}>Oct 2024 - present</div>
-            </div>
-            <ul>
-              <li>Studying the principles of computing, algorithms, AI, and system design.</li>
-              <li>Gaining hands-on experience building real-world projects.</li>
-            </ul>
-          </div>
-
-          <div className={styles.item} ref={(el) => setItemRef(el, 2)}>
-            <h2 className="title">Another Role</h2>
-            <div className={styles.organizationAndDateContainer}>
-              <div className={styles.organization}>Frontend Developer</div>
-              <div className={styles.date}>Jan 2025 - present</div>
-            </div>
-            <ul>
-              <li>Collaborate with clients to design and develop custom web applications.</li>
-              <li>Provide end-to-end solutions.</li>
-            </ul>
-          </div>
+        <div className={styles.cardsContainer} ref={cardsContainerRef}>
+          {experienceCards.map((card,index)=>
+          <ExperienceCard 
+          className={styles.card}
+          key={index} 
+          ref={(el)=>cardsRef.current[index]=el} 
+          experienceTitle={card.experienceTitle} 
+          organization={card.organization} 
+          cardPoints={card.cardPoints} 
+          date={card.date}>
+          </ExperienceCard>
+        )}
         </div>
+
       </div>
     </section>
-  );
+  )
+
+
+  
 }

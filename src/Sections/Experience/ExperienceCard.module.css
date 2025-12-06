@@ -1,0 +1,28 @@
+.card {
+    width: 100%;
+    background-color: var(--divBackground);
+    border-radius: 10px;
+    border: 1px solid #0e60b3;
+    color: var(--color);
+    padding: 25px;
+}
+
+.organizationAndDateContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.organization {
+    color: #0e60b3;
+    font-weight: 800;
+}
+
+.date {
+    font-weight: 800;
+}
+
+ul {
+    padding-left: 25px;
+}
+

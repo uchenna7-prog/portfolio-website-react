@@ -6,9 +6,10 @@
 }
 
 .timelineContainer {
+    display: flex;
+    justify-content: center;
     position: relative;
-    width: 90%;
-    margin: 7% auto;
+    width: 100vw;
     height: min-content;
     z-index: 100;
 }
@@ -16,8 +17,7 @@
 .tLine1 {
     position: absolute;
     top: 0;
-    left: 6.5rem;
-    width: 1px;
+    width: 2px;
     height: 100%;
     background-color: gray;
     z-index: 200;
@@ -26,7 +26,6 @@
 .tLine2 {
     position: absolute;
     top: 0;
-    left: calc(6.5rem + 10px);
     width: 1px;
     height: 50%;
     background: linear-gradient(to top, transparent, #0e60b3);
@@ -36,8 +35,7 @@
 .progressLine {
     position: absolute;
     top: 0;
-    left: 6.5rem;
-    width: 1px;
+    width: 2px;
     height: 0;
     background-color: #0e60b3;
     z-index: 500;
@@ -47,7 +45,6 @@
 .tCircle,
 .movingCircle {
     position: absolute;
-    left: 6.5rem;
     transform: translateX(-50%);
     height: 11px;
     width: 11px;
@@ -64,6 +61,7 @@
 
 .filled {
     background: #0e60b3;
+   
 }
 
 .movingCircle {
@@ -73,52 +71,25 @@
     transition: top 0.3s ease;
 }
 
-.itemsContainer {
+.cardsContainer {
     display: flex;
     flex-direction: column;
-    width: 100%;
-}
-
-.item {
-    margin-left: 13%;
+    gap:30px;
+    align-items: center;
     width: 70%;
-    background-color: var(--divBackground);
-    margin-bottom: 3%;
-    border-radius: 10px;
-    border: 1px solid #0e60b3;
-    color: var(--color);
-    padding: 25px;
+
+   
 }
 
-.organizationAndDateContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
-.organization {
-    color: #0e60b3;
-    font-weight: 800;
-}
-
-.date {
-    font-weight: 800;
-}
-
-ul {
-    padding-left: 25px;
-}
 
 @media(max-width:1000px) {
+    .cardsContainer {
+        width: 80%;
+    
+        }
 
-    .tLine1,
-    .progressLine,
-    .tCircle,
-    .movingCircle {
-        left: 2rem;
-    }
-
-    .tLine2 {
-        left: calc(2rem + 10px);
-    }
 }
+
+
+
