@@ -167,7 +167,13 @@ export default function Experience() {
       
       const rect = card.getBoundingClientRect();
       const top = rect.top - timelineRect.top;
-      tCirclesRef.current[index].style.top = top + "px";
+      if (index === 0){
+        tCirclesRef.current[index].style.top = "0px";
+      }
+      else{
+        tCirclesRef.current[index].style.top = top + "px";
+      }
+      
       tCirclesRef.current[index].style.left = left + "px";
 
       if (newProgress >= top) {
