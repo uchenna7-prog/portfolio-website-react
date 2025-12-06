@@ -1,20 +1,203 @@
 .servicesSection {
     padding: 60px 20px;
     background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+/* Subtle background effects */
+.servicesSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(14, 96, 179, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Animated gradient orbs */
+.servicesSection::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 15%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(14, 96, 179, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+    animation: floatOrb 25s ease-in-out infinite;
+}
+
+@keyframes floatOrb {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+    33% {
+        transform: translate(50px, -40px) scale(1.15);
+        opacity: 0.8;
+    }
+    66% {
+        transform: translate(-30px, 30px) scale(0.9);
+        opacity: 0.5;
+    }
+}
+
+/* Center the heading */
+.headingWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 70px;
+    position: relative;
+    z-index: 10;
+}
+
+.headingUnderline {
+    width: 90px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #0e60b3, transparent);
+    margin-top: 12px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(14, 96, 179, 0.5);
 }
 
 .cardsContainer {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 35px;
     flex-wrap: wrap;
-    margin-top: 40px;
+    max-width: 1400px;
+    position: relative;
+    z-index: 10;
+    padding: 0 10px;
 }
 
-@media (max-width: 650px){
+.cardsContainer > div {
+    transition: filter 0.3s ease;
+}
+
+/* Card hover effect on siblings */
+.cardsContainer:hover > div:not(:hover) {
+    filter: brightness(0.7) blur(2px);
+}
+
+.cardsContainer > div:hover {
+    filter: brightness(1) blur(0);
+    z-index: 20;
+}
+
+/* Add subtle shine effect to cards */
+.cardsContainer > div {
+    position: relative;
+    overflow: hidden;
+}
+
+.cardsContainer > div::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.cardsContainer > div:hover::before {
+    left: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .servicesSection {
+        padding: 50px 20px;
+    }
+
+    .headingWrapper {
+        margin-bottom: 60px;
+    }
+
+    .cardsContainer {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    .servicesSection {
+        padding: 40px 15px;
+    }
+
+    .headingWrapper {
+        margin-bottom: 50px;
+    }
+
+    .headingUnderline {
+        width: 70px;
+        height: 2px;
+        margin-top: 10px;
+    }
+
     .cardsContainer {
         flex-direction: column;
         align-items: center;
-        }
+        gap: 25px;
     }
+
+    /* Disable blur effect on mobile for performance */
+    .cardsContainer:hover > div:not(:hover) {
+        filter: none;
+    }
+
+    .cardsContainer > div::before {
+        display: none;
+    }
+
+    .servicesSection::after {
+        width: 250px;
+        height: 250px;
+        bottom: 15%;
+        left: 10%;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .cardsContainer > div,
+    .cardsContainer > div::before {
+        transition: none;
+        animation: none;
+    }
+
+    .servicesSection::after {
+        animation: none;
+    }
+
+    .cardsContainer:hover > div:not(:hover) {
+        filter: none;
+    }
+}
+
+/* Performance optimizations */
+.cardsContainer > div {
+    will-change: transform, filter;
+}

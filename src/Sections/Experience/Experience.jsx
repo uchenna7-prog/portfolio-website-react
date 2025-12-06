@@ -6,20 +6,67 @@ import codeLogo from "/codeLogo.png";
 import brandLogo from "/brandLogo.png";
 import { motion, useReducedMotion } from "framer-motion";
 
-// Heading animation
+// Heading animation with letter reveal effect
 const headingVariants = {
-  hidden: { opacity: 0, y: -30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  hidden: { opacity: 0 },
+  show: { 
+    opacity: 1,
+    transition: { 
+      staggerChildren: 0.05,
+      delayChildren: 0.1
+    } 
+  },
 };
 
-// Card animation
+const letterVariants = {
+  hidden: { opacity: 0, y: 50, rotateX: -90 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    rotateX: 0,
+    transition: { 
+      type: "spring",
+      damping: 12,
+      stiffness: 100
+    } 
+  },
+};
+
+// Card animation with staggered entrance from different sides
 const cardVariants = {
-  hidden: { opacity: 0, y: 50, scale: 0.97 },
+  hidden: (index) => ({ 
+    opacity: 0, 
+    x: index % 2 === 0 ? -100 : 100,
+    y: 50,
+    scale: 0.9,
+    rotateY: index % 2 === 0 ? -15 : 15,
+  }),
   show: {
     opacity: 1,
+    x: 0,
     y: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 100, damping: 15, duration: 0.6 },
+    rotateY: 0,
+    transition: { 
+      type: "spring", 
+      stiffness: 70, 
+      damping: 18, 
+      mass: 0.8,
+    },
+  },
+};
+
+// Timeline element animations
+const timelineVariants = {
+  hidden: { scaleY: 0, opacity: 0 },
+  show: { 
+    scaleY: 1, 
+    opacity: 1,
+    transition: { 
+      duration: 1.5, 
+      ease: [0.22, 1, 0.36, 1],
+      delay: 0.2
+    } 
   },
 };
 
@@ -81,6 +128,8 @@ export default function Experience() {
   const reduceMotion = useReducedMotion();
 
   const updateTimeline = () => {
+    if (!timelineRef.current || !cardsContainerRef.current) return;
+
     const timelineRect = timelineRef.current.getBoundingClientRect();
     const left =
       window.innerWidth < 1000
@@ -93,16 +142,29 @@ export default function Experience() {
     );
     setProgress(newProgress);
 
-    // Update line and moving circle
-    progresslineRef.current.style.height = newProgress + "px";
-    progresslineRef.current.style.left = left + "px";
-    movingCircleRef.current.style.top = newProgress + "px";
-    movingCircleRef.current.style.left = left + "px";
-    tLine1Ref.current.style.left = left + "px";
-    tLine2Ref.current.style.left = left + 10 + "px";
+    // Update line and moving circle with smooth transitions
+    if (progresslineRef.current) {
+      progresslineRef.current.style.height = newProgress + "px";
+      progresslineRef.current.style.left = left + "px";
+    }
+    
+    if (movingCircleRef.current) {
+      movingCircleRef.current.style.top = newProgress + "px";
+      movingCircleRef.current.style.left = left + "px";
+    }
+    
+    if (tLine1Ref.current) {
+      tLine1Ref.current.style.left = left + "px";
+    }
+    
+    if (tLine2Ref.current) {
+      tLine2Ref.current.style.left = left + 10 + "px";
+    }
 
     // Animate timeline circles in sync with cards
     cardsRef.current.forEach((card, index) => {
+      if (!card || !tCirclesRef.current[index]) return;
+      
       const rect = card.getBoundingClientRect();
       const top = rect.top - timelineRect.top;
       tCirclesRef.current[index].style.top = top + "px";
@@ -117,31 +179,90 @@ export default function Experience() {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", updateTimeline);
+    let ticking = false;
+    
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateTimeline();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", updateTimeline);
-    updateTimeline(); // initialize
+    
+    setTimeout(updateTimeline, 100);
+    
     return () => {
-      window.removeEventListener("scroll", updateTimeline);
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", updateTimeline);
     };
   }, []);
 
+  const headingText = "EXPERIENCE";
+
   return (
     <section className={styles.experienceSection}>
-      {/* Section heading animation */}
-      <motion.h2
-        className="sectionHeading"
-        variants={headingVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        EXPERIENCE
-      </motion.h2>
+      {/* Section heading with letter-by-letter animation */}
+      <div className={styles.headingWrapper}>
+        <motion.h2
+          className="sectionHeading"
+          variants={headingVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.8 }}
+          style={{ 
+            display: 'inline-flex', 
+            overflow: 'hidden',
+            perspective: '1000px'
+          }}
+        >
+          {headingText.split('').map((letter, index) => (
+            <motion.span
+              key={index}
+              variants={letterVariants}
+              style={{ 
+                display: 'inline-block',
+                transformOrigin: 'bottom'
+              }}
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </motion.h2>
+        <motion.div 
+          className={styles.headingUnderline}
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: false, amount: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </div>
 
       <div className={styles.timelineContainer} ref={timelineRef}>
-        <div className={styles.tLine1} ref={tLine1Ref}></div>
-        <div className={styles.tLine2} ref={tLine2Ref}></div>
+        <motion.div 
+          className={styles.tLine1} 
+          ref={tLine1Ref}
+          variants={timelineVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
+          style={{ originY: 0 }}
+        ></motion.div>
+        
+        <motion.div 
+          className={styles.tLine2} 
+          ref={tLine2Ref}
+          initial={{ opacity: 0, scaleY: 0 }}
+          whileInView={{ opacity: 1, scaleY: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 1.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          style={{ originY: 1 }}
+        ></motion.div>
+        
         <div className={styles.progressLine} ref={progresslineRef}></div>
         <div className={styles.movingCircle} ref={movingCircleRef}></div>
 
@@ -156,15 +277,30 @@ export default function Experience() {
         <div className={styles.cardsContainer} ref={cardsContainerRef}>
           {experienceCards.map((card, index) => (
             <motion.div
-              key={index}
+              key={card.id}
+              custom={index}
               variants={reduceMotion ? { hidden: {}, show: {} } : cardVariants}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.25, margin: "-50px" }}
               transition={{ delay: index * 0.15 }}
-              whileHover={reduceMotion ? {} : { scale: 1.02, y: -5 }}
-              whileTap={reduceMotion ? {} : { scale: 0.99 }}
-              style={{ width: "100%", willChange: "transform, opacity" }}
+              whileHover={reduceMotion ? {} : { 
+                scale: 1.02,
+                y: -5,
+                rotateY: 2,
+                transition: { 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 25 
+                }
+              }}
+              whileTap={reduceMotion ? {} : { scale: 0.98 }}
+              style={{ 
+                width: "100%", 
+                willChange: "transform, opacity",
+                perspective: "1500px",
+                transformStyle: "preserve-3d"
+              }}
               ref={(el) => (cardsRef.current[index] = el)}
             >
               <ExperienceCard

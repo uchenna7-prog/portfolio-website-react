@@ -1,97 +1,242 @@
 import styles from './Skills.module.css';
+import { motion, useReducedMotion } from "framer-motion";
+
+
+const headingVariants = {
+  hidden: { opacity: 0 },
+  show: { 
+    opacity: 1,
+    transition: { 
+      staggerChildren: 0.05,
+      delayChildren: 0.1
+    } 
+  },
+};
+
+const letterVariants = {
+  hidden: { opacity: 0, y: 50, rotateX: -90 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    rotateX: 0,
+    transition: { 
+      type: "spring",
+      damping: 12,
+      stiffness: 100
+    } 
+  },
+};
+
+
+const sliderContainerVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 70,
+      damping: 20
+    }
+  }
+};
 
 function Skills() {
+    const reduceMotion = useReducedMotion();
+    const headingText = "SKILLS";
+
+    const skills1 = [
+        { icon: "ci-html", name: "HTML" },
+        { icon: "ci-css", name: "CSS" },
+        { icon: "ci-javascript", name: "Javascript" },
+        { icon: "ci-python", name: "Python" },
+        { icon: "ci-mysql", name: "MySql" },
+        { icon: "ci-cpp", name: "C++" }
+    ];
+
+    const skills2 = [
+        { icon: "ci-react", name: "React" },
+        { icon: "ci-bootstrap", name: "Bootstrap" },
+        { icon: "ci-flask", name: "Flask" },
+        { icon: "ci-django", name: "Django" },
+        { icon: "ci-expressjs", name: "Express.js" },
+        { icon: "ci-tailwindcss", name: "Tailwind Css" }
+    ];
+
+    const skills3 = [
+        { icon: "ci-github", name: "GitHub" },
+        { icon: "ci-git", name: "Git" },
+        { icon: "ci-pycharm", name: "PyCharm" },
+        { icon: "ci-vscode", name: "VsCode" },
+        { icon: "ci-postman", name: "Postman" },
+        { icon: "ci-vercel", name: "Vercel" },
+        { icon: "ci-render", name: "Render" }
+    ];
+
     return (
         <section className={styles.skillsSection} id="skills">
-            <h2 className="sectionHeading">SKILLS</h2>
-            <div className={styles.skillsContainer}></div> 
-            <div className={styles.sliderContainer}>
-                <div className={styles.slider1}>
-                    <div className={styles.skill}><i className="ci ci-html"></i><span>HTML</span></div>
-                    <div className={styles.skill}><i className="ci ci-css"></i><span>CSS</span></div>
-                    <div className={styles.skill}><i className="ci ci-javascript"></i><span>Javascript</span></div>
-                    <div className={styles.skill}><i className="ci ci-python"></i><span>Python</span></div>
-                    <div className={styles.skill}><i className="ci ci-mysql"></i><span>MySql</span></div>
-                    <div className={styles.skill}><i className="ci ci-cpp"></i><span>C++</span></div>
-                    
-                
-                    <div className={styles.skill}><i className="ci ci-html"></i><span>HTML</span></div>
-                    <div className={styles.skill}><i className="ci ci-css"></i><span>CSS</span></div>
-                    <div className={styles.skill}><i className="ci ci-javascript"></i><span>Javascript</span></div>
-                    <div className={styles.skill}><i className="ci ci-python"></i><span>Python</span></div>
-                    <div className={styles.skill}><i className="ci ci-mysql"></i><span>MySql</span></div>
-                    <div className={styles.skill}><i className="ci ci-cpp"></i><span>C++</span></div>
-
-                    <div className={styles.skill}><i className="ci ci-html"></i><span>HTML</span></div>
-                    <div className={styles.skill}><i className="ci ci-css"></i><span>CSS</span></div>
-                    <div className={styles.skill}><i className="ci ci-javascript"></i><span>Javascript</span></div>
-                    <div className={styles.skill}><i className="ci ci-python"></i><span>Python</span></div>
-                    <div className={styles.skill}><i className="ci ci-mysql"></i><span>MySql</span></div>
-                    <div className={styles.skill}><i className="ci ci-cpp"></i><span>C++</span></div>
-                </div>       
-
+          
+            <div className={styles.headingWrapper}>
+                <motion.h2
+                    className="sectionHeading"
+                    variants={headingVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.8 }}
+                    style={{ 
+                        display: 'inline-flex', 
+                        overflow: 'hidden',
+                        perspective: '1000px'
+                    }}
+                >
+                    {headingText.split('').map((letter, index) => (
+                        <motion.span
+                            key={index}
+                            variants={letterVariants}
+                            style={{ 
+                                display: 'inline-block',
+                                transformOrigin: 'bottom'
+                            }}
+                        >
+                            {letter === ' ' ? '\u00A0' : letter}
+                        </motion.span>
+                    ))}
+                </motion.h2>
+                <motion.div 
+                    className={styles.headingUnderline}
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: false, amount: 0.8 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                />
             </div>
-             <div className={styles.sliderContainer}>
-                <div className={styles.slider2}>
 
-                    <div className={styles.skill}><i className="ci ci-react"></i><span>React</span></div>
-                    <div className={styles.skill}><i className="ci ci-bootstrap"></i><span>Bootstrap</span></div>
-                    <div className={styles.skill}><i className="ci ci-flask"></i><span>Flask</span></div>
-                    <div className={styles.skill}><i className="ci ci-django"></i><span>Django</span></div>
-                    <div className={styles.skill}><i className="ci ci-expressjs"></i><span>Express.js</span></div>
-                    <div className={styles.skill}><i className="ci ci-tailwindcss"></i><span>Tailwind Css</span></div>
+            <div className={styles.skillsContainer}>
 
-                    
-                    <div className={styles.skill}><i className="ci ci-react"></i><span>React</span></div>
-                    <div className={styles.skill}><i className="ci ci-bootstrap"></i><span>Bootstrap</span></div>
-                    <div className={styles.skill}><i className="ci ci-flask"></i><span>Flask</span></div>
-                    <div className={styles.skill}><i className="ci ci-django"></i><span>Django</span></div>
-                    <div className={styles.skill}><i className="ci ci-expressjs"></i><span>Express.js</span></div>
-                    <div className={styles.skill}><i className="ci ci-tailwindcss"></i><span>Tailwind Css</span></div>
+                <motion.div 
+                    className={styles.sliderContainer}
+                    variants={reduceMotion ? {} : sliderContainerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ delay: 0.2 }}
+                >
+                    <div className={styles.slider1}>
+                        {[...skills1, ...skills1, ...skills1].map((skill, index) => (
+                            <motion.div 
+                                key={index}
+                                className={styles.skill}
+                                whileHover={reduceMotion ? {} : {
+                                    scale: 1.15,
+                                    y: -10,
+                                    transition: {
+                                        type: "spring",
+                                        stiffness: 400,
+                                        damping: 15
+                                    }
+                                }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <motion.i 
+                                    className={`ci ${skill.icon}`}
+                                    whileHover={reduceMotion ? {} : {
+                                        scale: 1.3,
+                                        rotate: 360,
+                                        transition: {
+                                            duration: 0.5
+                                        }
+                                    }}
+                                />
+                                <span>{skill.name}</span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
 
-                    
-                    <div className={styles.skill}><i className="ci ci-react"></i><span>React</span></div>
-                    <div className={styles.skill}><i className="ci ci-bootstrap"></i><span>Bootstrap</span></div>
-                    <div className={styles.skill}><i className="ci ci-flask"></i><span>Flask</span></div>
-                    <div className={styles.skill}><i className="ci ci-django"></i><span>Django</span></div>
-                    <div className={styles.skill}><i className="ci ci-expressjs"></i><span>Express.js</span></div>
-                    <div className={styles.skill}><i className="ci ci-tailwindcss"></i><span>Tailwind Css</span></div>                
-                    
-                </div>
+    
+                <motion.div 
+                    className={styles.sliderContainer}
+                    variants={reduceMotion ? {} : sliderContainerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ delay: 0.4 }}
+                >
+                    <div className={styles.slider2}>
+                        {[...skills2, ...skills2, ...skills2].map((skill, index) => (
+                            <motion.div 
+                                key={index}
+                                className={styles.skill}
+                                whileHover={reduceMotion ? {} : {
+                                    scale: 1.15,
+                                    y: -10,
+                                    transition: {
+                                        type: "spring",
+                                        stiffness: 400,
+                                        damping: 15
+                                    }
+                                }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <motion.i 
+                                    className={`ci ${skill.icon}`}
+                                    whileHover={reduceMotion ? {} : {
+                                        scale: 1.3,
+                                        rotate: 360,
+                                        transition: {
+                                            duration: 0.5
+                                        }
+                                    }}
+                                />
+                                <span>{skill.name}</span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
 
-            </div>
-             <div className={styles.sliderContainer}>
-                <div className={styles.slider3}>
-                    <div className={styles.skill}><i className="ci ci-github"></i><span>GitHub</span></div>
-                    <div className={styles.skill}><i className="ci ci-git"></i><span>Git</span></div>
-                    <div className={styles.skill}><i className="ci ci-pycharm"></i><span>PyCharm</span></div>
-                    <div className={styles.skill}><i className="ci ci-vscode"></i><span>VsCode</span></div>
-                    <div className={styles.skill}><i className="ci ci-postman"></i><span>Postman</span></div>
-                    <div className={styles.skill}><i className="ci ci-vercel"></i><span>Vercel</span></div>
-                    <div className={styles.skill}><i className="ci ci-render"></i><span>Render</span></div>
-                    
-                    <div className={styles.skill}><i className="ci ci-github"></i><span>GitHub</span></div>
-                    <div className={styles.skill}><i className="ci ci-git"></i><span>Git</span></div>
-                    <div className={styles.skill}><i className="ci ci-pycharm"></i><span>PyCharm</span></div>
-                    <div className={styles.skill}><i className="ci ci-vscode"></i><span>VsCode</span></div>
-                    <div className={styles.skill}><i className="ci ci-postman"></i><span>Postman</span></div>
-                    <div className={styles.skill}><i className="ci ci-vercel"></i><span>Vercel</span></div>
-                    <div className={styles.skill}><i className="ci ci-render"></i><span>Render</span></div>
-
-                    <div className={styles.skill}><i className="ci ci-github"></i><span>GitHub</span></div>
-                    <div className={styles.skill}><i className="ci ci-git"></i><span>Git</span></div>
-                    <div className={styles.skill}><i className="ci ci-pycharm"></i><span>PyCharm</span></div>
-                    <div className={styles.skill}><i className="ci ci-vscode"></i><span>VsCode</span></div>
-                    <div className={styles.skill}><i className="ci ci-postman"></i><span>Postman</span></div>
-                    <div className={styles.skill}><i className="ci ci-vercel"></i><span>Vercel</span></div>
-                    <div className={styles.skill}><i className ="ci ci-render"></i><span>Render</span></div>
-                </div>
-
-                
-
+        
+                <motion.div 
+                    className={styles.sliderContainer}
+                    variants={reduceMotion ? {} : sliderContainerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ delay: 0.6 }}
+                >
+                    <div className={styles.slider3}>
+                        {[...skills3, ...skills3, ...skills3].map((skill, index) => (
+                            <motion.div 
+                                key={index}
+                                className={styles.skill}
+                                whileHover={reduceMotion ? {} : {
+                                    scale: 1.15,
+                                    y: -10,
+                                    transition: {
+                                        type: "spring",
+                                        stiffness: 400,
+                                        damping: 15
+                                    }
+                                }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <motion.i 
+                                    className={`ci ${skill.icon}`}
+                                    whileHover={reduceMotion ? {} : {
+                                        scale: 1.3,
+                                        rotate: 360,
+                                        transition: {
+                                            duration: 0.5
+                                        }
+                                    }}
+                                />
+                                <span>{skill.name}</span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
             </div>
         </section>
-    )
+    );
 }
 
 export default Skills;

@@ -1,162 +1,331 @@
-.contactSection{
+.contactSection {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
     background-color: var(--bg);
     padding: 60px 0;
-
+    position: relative;
+    overflow: hidden;
 }
-.contactContainer{
+
+
+.headingWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 10;
+}
+
+.headingUnderline {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #0e60b3, transparent);
+    margin-top: 12px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(14, 96, 179, 0.5);
+}
+
+.contactContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap:30px;
+    gap: 40px;
     justify-content: center;
     width: 80%;
+    position: relative;
+    z-index: 10;
 }
-.contactContainer > div,.contactContainer > form{
+
+.contactContainer>div,
+.contactContainer>form {
     flex-grow: 1;
 }
 
-
-.contactContainer > form{
-    border: 1px solid #0e60b3;
-    border-radius: 10px;
-
+.contactContainer>form {
+    border: 2px solid rgba(14, 96, 179, 0.3);
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(14, 96, 179, 0.02), rgba(14, 96, 179, 0.05));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(14, 96, 179, 0.1);
+    transition: all 0.3s ease;
 }
-.contactContainer > div .secondDivFirstHeading {
+
+.contactContainer>form:hover {
+    border-color: rgba(14, 96, 179, 0.5);
+    box-shadow: 0 12px 40px rgba(14, 96, 179, 0.15);
+}
+
+.contactContainer>div .secondDivFirstHeading {
     margin-top: 0;
-
 }
-.formRow1Container{
+
+.formRow1Container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-  
 }
 
-.form input{
+.form input {
     height: 3rem;
 }
-.formRow1Container > input{
+
+.formRow1Container>input {
     width: 49%;
 }
 
-.form{
+.form {
     display: flex;
     align-items: center;
-    padding: 30px 0;  
-
+    padding: 40px 0;
 }
 
 .formRowContainer {
-    width:90%;
- 
-
+    width: 90%;
 }
-.form > div{
+
+.form>div {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:20px;
-   
-
+    gap: 25px;
 }
-.form textarea{
+
+.form textarea {
     resize: none;
     height: 10em;
 }
 
 .form button {
     height: 3rem;
+    cursor: pointer;
 }
-.formInput{
-    border-radius: 10px;
-    border: 1px solid #0e60b3;
-    background-color: transparent;
-    color: var(--color); 
-    
-}
-.formButton {
-    border-radius: 10px;
-    border: 1px solid var(--buttonColor);
-    background-color:var(--buttonColor);
-    color: var(--buttonTextColor1);
 
+.formInput {
+    border-radius: 12px;
+    border: 2px solid rgba(14, 96, 179, 0.3);
+    background-color: rgba(14, 96, 179, 0.02);
+    color: var(--color);
+    padding: 12px 16px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
 }
-.sendBtnText{
+
+.formInput:hover {
+    border-color: rgba(14, 96, 179, 0.5);
+    background-color: rgba(14, 96, 179, 0.05);
+}
+
+.formInput:focus {
+    border-color: #1a7dd4;
+    background-color: rgba(14, 96, 179, 0.08);
+    box-shadow: 0 0 0 3px rgba(14, 96, 179, 0.1);
+}
+
+.formButton {
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, var(--buttonColor), #1a7dd4);
+    color: var(--buttonTextColor1);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(14, 96, 179, 0.3);
+}
+
+.formButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(14, 96, 179, 0.4);
+}
+
+.formButton:active {
+    transform: translateY(0);
+}
+
+.sendBtnText {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    font-size: 20px;
-}
-.ContactDetailContainer{
-    --copyIconDisplay:none;
-    position: relative;
-    margin-top: 20px;
-    display:flex;
-    gap:20px;
-    border-radius: 10px;
-    background-color: var(--divBackground);
-    padding: 20px;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
 }
 
-.ContactDetailContainer:hover{
-    --copyIconDisplay: block;
+.ContactDetailContainer {
+    --copyIconDisplay: none;
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(14, 96, 179, 0.05), rgba(14, 96, 179, 0.08));
+    padding: 24px;
+    border: 2px solid rgba(14, 96, 179, 0.1);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
 }
-.ContactDetailContainer i{
+
+.ContactDetailContainer:hover {
+    --copyIconDisplay: block;
+    background: linear-gradient(135deg, rgba(14, 96, 179, 0.08), rgba(14, 96, 179, 0.12));
+    border-color: rgba(14, 96, 179, 0.3);
+}
+
+.ContactDetailContainer i {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:var(--buttonColor);
-    width: 2em;
-    height: 2em;
-    border-radius: 5px;
-    color: var(--color);
-  
+    background: linear-gradient(135deg, var(--buttonColor), #1a7dd4);
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(14, 96, 179, 0.3);
+    transition: all 0.3s ease;
 }
-.ContactDetailContainer span{
+
+.ContactDetailContainer:hover i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.ContactDetailContainer span {
     display: var(--copyIconDisplay);
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 1rem; 
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.1rem;
     cursor: pointer;
-    font-weight: 400;   
+    font-weight: 400;
+    color: var(--buttonColor);
+    transition: all 0.3s ease;
+}
 
+.ContactDetailContainer span:hover {
+    color: #1a7dd4;
+}
+
+.ContactDetailContainer div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ContactDetailContainer div div:first-child {
+    font-weight: 600;
+    color: var(--buttonColor);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ContactDetailContainer div a {
+    color: var(--color);
+    font-size: 16px;
 }
 
 .socialIconsContainer {
     display: flex;
     gap: 14px;
+    flex-wrap: wrap;
 }
 
 .socialIcon {
-    color: var(--color);
-    background-color: var(--buttonColor);
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, var(--buttonColor), #1a7dd4);
     font-size: 0.8em;
-    padding: 8px;
+    padding: 12px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(14, 96, 179, 0.3);
+}
 
-}
 .socialIcon:hover {
-    background-color: #1a75d1;
-    transform: scale(1.2);
-      
+    background: linear-gradient(135deg, #1a7dd4, #2e8de6);
+    box-shadow: 0 6px 25px rgba(14, 96, 179, 0.5);
 }
-@media(max-width:600px){
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .contactContainer {
+        width: 90%;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contactSection {
+        padding: 50px 0;
+    }
+
+    .headingWrapper {
+        margin-bottom: 50px;
+    }
+
+    .headingUnderline {
+        width: 70px;
+        height: 2px;
+    }
+
+    .contactContainer {
+        width: 92%;
+        gap: 30px;
+    }
+
     .formRow1Container {
         flex-direction: column;
-        gap:10px;
-      
+        gap: 15px;
     }
+
     .formRow1Container>input {
         width: 100%;
     }
 
+    .form {
+        padding: 30px 0;
+    }
+
+    .form>div {
+        gap: 20px;
+    }
+
+    .ContactDetailContainer {
+        padding: 20px;
+    }
+
+    .socialIcon {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+    .formInput,
+    .formButton,
+    .ContactDetailContainer,
+    .socialIcon,
+    .ContactDetailContainer i,
+    .ContactDetailContainer span {
+        transition: none;
+        animation: none;
+    }
+
+    .contactContainer>form {
+        transition: none;
+    }
 }
