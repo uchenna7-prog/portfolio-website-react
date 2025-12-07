@@ -9,7 +9,6 @@
     align-items: center;
 }
 
-/* Subtle background effects */
 .servicesSection::before {
     content: '';
     position: absolute;
@@ -22,7 +21,6 @@
     z-index: 1;
 }
 
-/* Animated gradient orbs */
 .servicesSection::after {
     content: '';
     position: absolute;
@@ -39,21 +37,24 @@
 }
 
 @keyframes floatOrb {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0) scale(1);
         opacity: 0.6;
     }
+
     33% {
         transform: translate(50px, -40px) scale(1.15);
         opacity: 0.8;
     }
+
     66% {
         transform: translate(-30px, 30px) scale(0.9);
         opacity: 0.5;
     }
 }
 
-/* Center the heading */
 .headingWrapper {
     display: flex;
     flex-direction: column;
@@ -75,7 +76,10 @@
 
 .cardsContainer {
     display: flex;
+    flex-direction: row;
+    /* Horizontal on big screens */
     justify-content: center;
+    align-items: flex-start;
     gap: 35px;
     flex-wrap: wrap;
     max-width: 1400px;
@@ -84,65 +88,59 @@
     padding: 0 10px;
 }
 
-.cardsContainer > div {
+.cardsContainer>div {
     transition: filter 0.3s ease;
 }
 
-/* Card hover effect on siblings */
-.cardsContainer:hover > div:not(:hover) {
+.cardsContainer:hover>div:not(:hover) {
     filter: brightness(0.7) blur(2px);
 }
 
-.cardsContainer > div:hover {
+.cardsContainer>div:hover {
     filter: brightness(1) blur(0);
     z-index: 20;
 }
 
-/* Add subtle shine effect to cards */
-.cardsContainer > div {
+.cardsContainer>div {
     position: relative;
     overflow: hidden;
 }
 
-.cardsContainer > div::before {
+.cardsContainer>div::before {
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.1) 50%,
-        transparent 70%
-    );
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 70%);
     transform: rotate(45deg);
     transition: all 0.6s ease;
     pointer-events: none;
     z-index: 10;
 }
 
-.cardsContainer > div:hover::before {
+.cardsContainer>div:hover::before {
     left: 100%;
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
-    .servicesSection {
-        padding: 50px 20px;
-    }
-
-    .headingWrapper {
-        margin-bottom: 60px;
-    }
-
     .cardsContainer {
         gap: 30px;
     }
 }
 
 @media (max-width: 650px) {
+    .cardsContainer {
+        flex-direction: column;
+        /* Vertical on small screens */
+        align-items: center;
+        gap: 25px;
+    }
+
     .servicesSection {
         padding: 40px 15px;
     }
@@ -157,18 +155,11 @@
         margin-top: 10px;
     }
 
-    .cardsContainer {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-    }
-
-    /* Disable blur effect on mobile for performance */
-    .cardsContainer:hover > div:not(:hover) {
+    .cardsContainer:hover>div:not(:hover) {
         filter: none;
     }
 
-    .cardsContainer > div::before {
+    .cardsContainer>div::before {
         display: none;
     }
 
@@ -180,10 +171,10 @@
     }
 }
 
-/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-    .cardsContainer > div,
-    .cardsContainer > div::before {
+
+    .cardsContainer>div,
+    .cardsContainer>div::before {
         transition: none;
         animation: none;
     }
@@ -192,12 +183,11 @@
         animation: none;
     }
 
-    .cardsContainer:hover > div:not(:hover) {
+    .cardsContainer:hover>div:not(:hover) {
         filter: none;
     }
 }
 
-/* Performance optimizations */
-.cardsContainer > div {
+.cardsContainer>div {
     will-change: transform, filter;
 }

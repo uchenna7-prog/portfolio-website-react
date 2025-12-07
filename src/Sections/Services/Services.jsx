@@ -62,7 +62,7 @@ const cardVariants = {
   }
 };
 
-function Services() {
+export default function Services() {
   const reduceMotion = useReducedMotion();
   const headingText = "SERVICES";
 
@@ -161,5 +161,3 @@ function Services() {
     </section>
   );
 }
-
-export default Services;

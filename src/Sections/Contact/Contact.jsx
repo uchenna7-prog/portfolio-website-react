@@ -1,6 +1,6 @@
 import styles from "./Contact.module.css";
 import { motion, useReducedMotion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Heading animation
 const headingVariants = {
@@ -28,35 +28,45 @@ const letterVariants = {
   },
 };
 
-// Form animation
-const formVariants = {
-  hidden: { opacity: 0, y: 60, scale: 0.95 },
+// Form animation - different for mobile and desktop
+const getFormVariants = (isMobile) => ({
+  hidden: { 
+    opacity: 0, 
+    scale: isMobile ? 0.9 : 0.95,
+    y: isMobile ? 30 : 60
+  },
   show: {
     opacity: 1,
-    y: 0,
     scale: 1,
+    y: 0,
     transition: {
       type: "spring",
       stiffness: 70,
       damping: 20,
-      staggerChildren: 0.1,
+      staggerChildren: isMobile ? 0.08 : 0.1,
       delayChildren: 0.2
     }
   }
-};
+});
 
-const inputVariants = {
-  hidden: { opacity: 0, x: -30 },
+// Input variants - adaptive based on screen size
+const getInputVariants = (isMobile) => ({
+  hidden: { 
+    opacity: 0, 
+    scale: isMobile ? 0.95 : 0.98,
+    y: isMobile ? 15 : 20
+  },
   show: {
     opacity: 1,
-    x: 0,
+    scale: 1,
+    y: 0,
     transition: {
       type: "spring",
-      stiffness: 100,
-      damping: 15
+      stiffness: isMobile ? 150 : 120,
+      damping: isMobile ? 18 : 15
     }
   }
-};
+});
 
 // Contact details animation
 const detailsVariants = {
@@ -106,12 +116,26 @@ function Contact() {
   const reduceMotion = useReducedMotion();
   const headingText = "LET'S CONNECT";
   const [copiedField, setCopiedField] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleCopy = (text, field) => {
     navigator.clipboard.writeText(text);
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2000);
   };
+
+  const formVariants = getFormVariants(isMobile);
+  const inputVariants = getInputVariants(isMobile);
 
   return (
     <section className={styles.contactSection} id="contact">
@@ -168,14 +192,30 @@ function Contact() {
               <motion.input 
                 className={styles.formInput} 
                 placeholder="Your Name"
-                whileFocus={{ scale: 1.02, borderColor: "#1a7dd4" }}
+                whileFocus={reduceMotion ? {} : { 
+                  scale: 1.02, 
+                  borderColor: "#1a7dd4",
+                  boxShadow: "0 0 0 4px rgba(14, 96, 179, 0.1)"
+                }}
+                whileHover={reduceMotion ? {} : {
+                  borderColor: "rgba(14, 96, 179, 0.6)",
+                  transition: { duration: 0.2 }
+                }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               />
               <motion.input 
                 className={styles.formInput} 
                 placeholder="Your Email" 
                 type="email"
-                whileFocus={{ scale: 1.02, borderColor: "#1a7dd4" }}
+                whileFocus={reduceMotion ? {} : { 
+                  scale: 1.02, 
+                  borderColor: "#1a7dd4",
+                  boxShadow: "0 0 0 4px rgba(14, 96, 179, 0.1)"
+                }}
+                whileHover={reduceMotion ? {} : {
+                  borderColor: "rgba(14, 96, 179, 0.6)",
+                  transition: { duration: 0.2 }
+                }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               />
             </motion.div>
@@ -184,7 +224,15 @@ function Contact() {
               placeholder="Email Subject" 
               className={`${styles.formRowContainer} ${styles.formInput}`}
               variants={inputVariants}
-              whileFocus={{ scale: 1.02, borderColor: "#1a7dd4" }}
+              whileFocus={reduceMotion ? {} : { 
+                scale: 1.02, 
+                borderColor: "#1a7dd4",
+                boxShadow: "0 0 0 4px rgba(14, 96, 179, 0.1)"
+              }}
+              whileHover={reduceMotion ? {} : {
+                borderColor: "rgba(14, 96, 179, 0.6)",
+                transition: { duration: 0.2 }
+              }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
             
@@ -193,24 +241,47 @@ function Contact() {
               placeholder="Your Message" 
               rows={20}
               variants={inputVariants}
-              whileFocus={{ scale: 1.02, borderColor: "#1a7dd4" }}
+              whileFocus={reduceMotion ? {} : { 
+                scale: 1.02, 
+                borderColor: "#1a7dd4",
+                boxShadow: "0 0 0 4px rgba(14, 96, 179, 0.1)"
+              }}
+              whileHover={reduceMotion ? {} : {
+                borderColor: "rgba(14, 96, 179, 0.6)",
+                transition: { duration: 0.2 }
+              }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
             
             <motion.button 
+              type="button"
               className={`${styles.formButton} ${styles.formRowContainer}`}
               variants={inputVariants}
-              whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 8px 25px rgba(14, 96, 179, 0.4)",
+              whileHover={reduceMotion ? {} : { 
+                scale: 1.05,
+                y: -3,
+                boxShadow: "0 10px 30px rgba(14, 96, 179, 0.4)",
                 transition: { type: "spring", stiffness: 400, damping: 10 }
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <span className={styles.sendBtnText}>
-                <i className="fa fa-paper-plane" aria-hidden="true"></i>
+              <motion.span 
+                className={styles.sendBtnText}
+                whileHover={reduceMotion ? {} : {
+                  x: 3,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                <motion.i 
+                  className="fa fa-paper-plane" 
+                  aria-hidden="true"
+                  whileHover={reduceMotion ? {} : {
+                    rotate: 15,
+                    transition: { duration: 0.2 }
+                  }}
+                />
                 Send Message
-              </span>
+              </motion.span>
             </motion.button>
           </div>
         </motion.form>
@@ -232,7 +303,7 @@ function Contact() {
           <motion.div 
             className={styles.ContactDetailContainer}
             variants={detailItemVariants}
-            whileHover={{ 
+            whileHover={reduceMotion ? {} : { 
               scale: 1.03, 
               y: -5,
               boxShadow: "0 10px 30px rgba(14, 96, 179, 0.2)",
@@ -257,7 +328,7 @@ function Contact() {
           <motion.div 
             className={styles.ContactDetailContainer}
             variants={detailItemVariants}
-            whileHover={{ 
+            whileHover={reduceMotion ? {} : { 
               scale: 1.03, 
               y: -5,
               boxShadow: "0 10px 30px rgba(14, 96, 179, 0.2)",
@@ -282,7 +353,7 @@ function Contact() {
           <motion.div 
             className={styles.ContactDetailContainer}
             variants={detailItemVariants}
-            whileHover={{ 
+            whileHover={reduceMotion ? {} : { 
               scale: 1.03, 
               y: -5,
               boxShadow: "0 10px 30px rgba(14, 96, 179, 0.2)",

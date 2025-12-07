@@ -113,26 +113,28 @@ const drawingPaths = {
   ],
 };
 
-const PixelComponent = ({ char, charIdx, pixelsOn }) => {
+const PixelComponent = ({ char, charIdx, pixelsOn, allPixelsDrawn }) => {
   const letter = lettersData[char];
   if (!letter) return null;
 
   return (
-    <div className="letter">
+    <div className={`letter ${allPixelsDrawn ? 'complete' : ''}`}>
       {letter.map((row, y) => (
         <div className="row" key={y}>
           {row.map((v, x) => {
-            const isOn = pixelsOn.some(
+            const pixelData = pixelsOn.find(
               p => p && p.charIdx === charIdx && p.x === x && p.y === y
             );
+            const isOn = !!pixelData;
+            const index = pixelData?.index || 0;
+            
             return (
               <div
                 key={x}
-                className={`pixel ${isOn ? "on" : ""}`}
+                className={`pixel ${isOn ? "on" : ""} ${v === 1 ? "target" : ""}`}
                 style={{
-                  transition: "opacity 0.15s ease, transform 0.15s ease",
-                  transform: isOn ? "scale(1)" : "scale(0.8)",
-                  opacity: isOn ? 1 : 0,
+                  transitionDelay: isOn ? `${index * 2}ms` : '0ms',
+                  animationDelay: isOn ? `${index * 2}ms` : '0ms',
                 }}
               />
             );
@@ -147,9 +149,12 @@ export default function PixelHero({ onFinish }) {
   const text = "UCHENNA";
   const [pixelsOn, setPixelsOn] = useState([]);
   const [finished, setFinished] = useState(false);
+  const [allPixelsDrawn, setAllPixelsDrawn] = useState(false);
+  const [showPulse, setShowPulse] = useState(false);
 
   useEffect(() => {
     const drawingSequence = [];
+    let globalIndex = 0;
     
     // Build the complete drawing sequence
     text.split("").forEach((char, charIdx) => {
@@ -157,7 +162,12 @@ export default function PixelHero({ onFinish }) {
       if (!path) return;
       
       path.forEach(coord => {
-        drawingSequence.push({ charIdx, x: coord.x, y: coord.y });
+        drawingSequence.push({ 
+          charIdx, 
+          x: coord.x, 
+          y: coord.y,
+          index: globalIndex++
+        });
       });
       
       // Add a small pause between letters
@@ -168,12 +178,20 @@ export default function PixelHero({ onFinish }) {
 
     // Animate the drawing
     let currentIndex = 0;
-    const baseDelay = 30; // milliseconds per pixel
-    const pauseDelay = 150; // pause between letters
+    const baseDelay = 25; // milliseconds per pixel (faster)
+    const pauseDelay = 100; // pause between letters (shorter)
 
     const drawNext = () => {
       if (currentIndex >= drawingSequence.length) {
-        setFinished(true);
+        setAllPixelsDrawn(true);
+        // Wait for pulse animation
+        setTimeout(() => {
+          setShowPulse(true);
+          // Then finish
+          setTimeout(() => {
+            setFinished(true);
+          }, 800);
+        }, 200);
         return;
       }
 
@@ -203,20 +221,22 @@ export default function PixelHero({ onFinish }) {
     if (finished) {
       const timer = setTimeout(() => {
         if (onFinish) onFinish();
-      }, 600);
+      }, 800);
       return () => clearTimeout(timer);
     }
   }, [finished, onFinish]);
 
   return (
-    <div className={`pixel-container ${finished ? "finish" : ""}`}>
+    <div className={`pixel-container ${finished ? "finish" : ""} ${showPulse ? "pulse" : ""}`}>
       {text.split("").map((char, ci) => (
-        <PixelComponent key={ci} char={char} charIdx={ci} pixelsOn={pixelsOn} />
+        <PixelComponent 
+          key={ci} 
+          char={char} 
+          charIdx={ci} 
+          pixelsOn={pixelsOn}
+          allPixelsDrawn={allPixelsDrawn}
+        />
       ))}
     </div>
   );
 }
-
-// ---------------------------------------------
-// Pixel.css
-// ---------------------------------------------
