@@ -30,10 +30,10 @@ const letterVariants = {
 
 // Form animation
 const formVariants = {
-  hidden: { opacity: 0, x: -60, scale: 0.95 },
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
   show: {
     opacity: 1,
-    x: 0,
+    y: 0,
     scale: 1,
     transition: {
       type: "spring",
@@ -122,7 +122,7 @@ function Contact() {
           variants={headingVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: false, amount: 0.8 }}
           style={{ 
             display: 'inline-flex', 
             overflow: 'hidden',
@@ -146,19 +146,19 @@ function Contact() {
           className={styles.headingUnderline}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: false, amount: 0.8 }}
           transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
 
       <div className={styles.contactContainer}>
-        {/* Animated form */}
+    
         <motion.form 
           className={styles.form}
           variants={reduceMotion ? {} : formVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
         >
           <div>
             <motion.div 
@@ -220,7 +220,7 @@ function Contact() {
           variants={reduceMotion ? {} : detailsVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
         >
           <motion.h2 
             className={`${styles.secondDivFirstHeading} title`}

@@ -6,7 +6,7 @@ import codeLogo from "/codeLogo.png";
 import brandLogo from "/brandLogo.png";
 import { motion, useReducedMotion } from "framer-motion";
 
-// Heading animation with letter reveal effect
+
 const headingVariants = {
   hidden: { opacity: 0 },
   show: { 
@@ -32,14 +32,13 @@ const letterVariants = {
   },
 };
 
-// Card animation with staggered entrance from different sides
+
 const cardVariants = {
   hidden: (index) => ({ 
     opacity: 0, 
-    x: index % 2 === 0 ? -100 : 100,
-    y: 50,
-    scale: 0.9,
-    rotateY: index % 2 === 0 ? -15 : 15,
+    x: 50,
+
+    
   }),
   show: {
     opacity: 1,
@@ -56,7 +55,7 @@ const cardVariants = {
   },
 };
 
-// Timeline element animations
+
 const timelineVariants = {
   hidden: { scaleY: 0, opacity: 0 },
   show: { 
@@ -142,7 +141,6 @@ export default function Experience() {
     );
     setProgress(newProgress);
 
-    // Update line and moving circle with smooth transitions
     if (progresslineRef.current) {
       progresslineRef.current.style.height = newProgress + "px";
       progresslineRef.current.style.left = left + "px";
@@ -161,7 +159,6 @@ export default function Experience() {
       tLine2Ref.current.style.left = left + 10 + "px";
     }
 
-    // Animate timeline circles in sync with cards
     cardsRef.current.forEach((card, index) => {
       if (!card || !tCirclesRef.current[index]) return;
       
@@ -181,7 +178,8 @@ export default function Experience() {
       } else {
         tCirclesRef.current[index].classList.remove(styles.filled);
       }
-    });
+    }
+  );
   };
 
   useEffect(() => {
@@ -212,14 +210,13 @@ export default function Experience() {
 
   return (
     <section className={styles.experienceSection}>
-      {/* Section heading with letter-by-letter animation */}
       <div className={styles.headingWrapper}>
         <motion.h2
           className="sectionHeading"
           variants={headingVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: false, amount: 0.8 }}
           style={{ 
             display: 'inline-flex', 
             overflow: 'hidden',
@@ -243,7 +240,7 @@ export default function Experience() {
           className={styles.headingUnderline}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: false, amount: 0.8 }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
@@ -255,7 +252,7 @@ export default function Experience() {
           variants={timelineVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           style={{ originY: 0 }}
         ></motion.div>
         
@@ -288,7 +285,7 @@ export default function Experience() {
               variants={reduceMotion ? { hidden: {}, show: {} } : cardVariants}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, amount: 0.25, margin: "-50px" }}
+              viewport={{ once: false, amount: 0.1, margin: "-50px" }}
               transition={{ delay: index * 0.15 }}
               whileHover={reduceMotion ? {} : { 
                 scale: 1.02,

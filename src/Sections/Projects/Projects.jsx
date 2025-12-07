@@ -213,7 +213,7 @@ function Projects() {
               whileHover={{ x: 5, rotate: 45 }}
               transition={{ type: "spring", stiffness: 300, damping: 10 }}
             >
-              open_in_new
+              arrow_forward
             </motion.i>
           </motion.button>
         </Link>

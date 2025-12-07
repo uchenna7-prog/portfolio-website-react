@@ -1,11 +1,10 @@
+/* ---------------- Experience.module.css ---------------- */
 .experienceSection {
     width: 100vw;
     min-height: 100vh;
     background: var(--bg);
     padding: 50px 0px;
-
 }
-
 
 .headingWrapper {
     display: flex;
@@ -20,15 +19,13 @@
 .headingUnderline {
     width: 80px;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #0e60b3, transparent);
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
     margin-top: 12px;
     border-radius: 2px;
     box-shadow: 0 0 10px rgba(14, 96, 179, 0.5);
 }
 
-
-
-
+/* ---------------- Timeline ---------------- */
 .timelineContainer {
     display: flex;
     justify-content: center;
@@ -53,15 +50,22 @@
     box-shadow: 0 0 10px rgba(128, 128, 128, 0.1);
 }
 
+:root[data-theme="dark-mode"] .tLine1 {
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.05) 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.05) 100%);
+}
+
 .tLine2 {
     position: absolute;
     top: 0;
     width: 1px;
     height: 50%;
     background: linear-gradient(to top,
-            transparent 0%,
-            rgba(14, 96, 179, 0.2) 30%,
-            rgba(14, 96, 179, 0.6) 100%);
+                transparent 0%,
+                color-mix(in srgb, var(--border) 33%, transparent) 30%,
+                color-mix(in srgb, var(--border) 80%, transparent) 100%);
     z-index: 300;
     transform-origin: bottom;
     transition: left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -71,17 +75,13 @@
 .progressLine {
     position: absolute;
     top: 0;
+    z-index: 200;
     width: 2px;
     height: 0;
-    background: linear-gradient(to bottom,
-            #0e60b3 0%,
-            #1a7dd4 50%,
-            #2e8de6 100%);
-    z-index: 200;
+    background: linear-gradient(to bottom, var(--border) 0%, var(--border) 50%, var(--border) 100%);
     transition: height 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow:
-        0 0 12px rgba(14, 96, 179, 0.6),
+    box-shadow: 0 0 12px rgba(14, 96, 179, 0.6),
         0 0 24px rgba(14, 96, 179, 0.3),
         0 0 36px rgba(14, 96, 179, 0.1);
 }
@@ -100,82 +100,57 @@
     border: 2px solid rgba(128, 128, 128, 0.4);
     background: var(--bg);
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow:
-        0 0 0 rgba(14, 96, 179, 0.4),
+    box-shadow: 0 0 0 rgba(14, 96, 179, 0.4),
         inset 0 0 8px rgba(14, 96, 179, 0.1);
-
 }
 
-
+:root[data-theme="dark-mode"] .tCircle {
+    border: 2px solid rgba(200, 200, 200, 0.3);
+    box-shadow: 0 0 0 rgba(14, 96, 179, 0.3),
+        inset 0 0 6px rgba(255, 255, 255, 0.1);
+}
 
 .filled {
-    background: linear-gradient(135deg, #0e60b3 0%, #1a7dd4 100%);
-    border-color: #0e60b3;
-    box-shadow:
-        0 0 16px rgba(14, 96, 179, 0.7),
+    background: linear-gradient(135deg, var(--border) 0%, #1a7dd4 100%);
+    border-color: var(--border);
+    box-shadow: 0 0 16px rgba(14, 96, 179, 0.7),
         0 0 32px rgba(14, 96, 179, 0.4),
         0 0 48px rgba(14, 96, 179, 0.2),
         inset 0 0 8px rgba(255, 255, 255, 0.4);
     animation: pulseCircle 2.5s ease-in-out infinite;
 }
 
+:root[data-theme="dark-mode"] .filled {
+    background: linear-gradient(135deg, #0e60b3 0%, #1a7dd4 100%);
+    box-shadow: 0 0 20px rgba(14, 96, 179, 0.8),
+        0 0 36px rgba(14, 96, 179, 0.5),
+        0 0 60px rgba(14, 96, 179, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
 @keyframes pulseCircle {
 
     0%,
     100% {
-        box-shadow:
-            0 0 16px rgba(14, 96, 179, 0.7),
-            0 0 32px rgba(14, 96, 179, 0.4),
-            0 0 48px rgba(14, 96, 179, 0.2),
-            inset 0 0 8px rgba(255, 255, 255, 0.4);
         transform: translateX(-50%) scale(1);
     }
 
     50% {
-        box-shadow:
-            0 0 24px rgba(14, 96, 179, 0.9),
-            0 0 48px rgba(14, 96, 179, 0.5),
-            0 0 72px rgba(14, 96, 179, 0.3),
-            inset 0 0 12px rgba(255, 255, 255, 0.5);
         transform: translateX(-50%) scale(1.1);
     }
 }
 
 .movingCircle {
-    background: radial-gradient(circle, #1a7dd4 0%, #0e60b3 100%);
+    background: radial-gradient(circle, #1a7dd4 0%, var(--border) 100%);
     border: 2px solid rgba(255, 255, 255, 0.6);
     z-index: 600;
-    transition: top 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow:
-        0 0 20px rgba(14, 96, 179, 0.9),
+    transition: top 0.1s, left 0.3s;
+    box-shadow: 0 0 20px rgba(14, 96, 179, 0.9),
         0 0 40px rgba(14, 96, 179, 0.5),
         0 0 60px rgba(14, 96, 179, 0.3),
         inset 0 0 8px rgba(255, 255, 255, 0.6);
     animation: glow 2s ease-in-out infinite;
     filter: brightness(1.2);
-}
-
-@keyframes glow {
-
-    0%,
-    100% {
-        box-shadow:
-            0 0 20px rgba(14, 96, 179, 0.9),
-            0 0 40px rgba(14, 96, 179, 0.5),
-            0 0 60px rgba(14, 96, 179, 0.3),
-            inset 0 0 8px rgba(255, 255, 255, 0.6);
-        transform: translateX(-50%) scale(1);
-    }
-
-    50% {
-        box-shadow:
-            0 0 30px rgba(14, 96, 179, 1),
-            0 0 60px rgba(14, 96, 179, 0.7),
-            0 0 90px rgba(14, 96, 179, 0.4),
-            inset 0 0 12px rgba(255, 255, 255, 0.8);
-        transform: translateX(-50%) scale(1.2);
-    }
 }
 
 .cardsContainer {
@@ -188,7 +163,7 @@
     z-index: 10;
 }
 
-/* Add subtle card shadows for depth */
+/* Card shadows */
 .cardsContainer>div {
     filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.08));
     transition: filter 0.4s ease;
@@ -198,9 +173,8 @@
     filter: drop-shadow(0 12px 40px rgba(14, 96, 179, 0.2));
 }
 
-
+/* ---------------- Responsive ---------------- */
 @media (max-width: 1000px) {
-
 
     .tCircle,
     .movingCircle {
@@ -215,9 +189,8 @@
 
 @media (max-width: 768px) {
     .experienceSection {
-        padding: 40px 0px;
+        padding: 40px 0;
     }
-
 
     .tLine1,
     .progressLine {
@@ -242,9 +215,8 @@
 
 @media (max-width: 480px) {
     .experienceSection {
-        padding: 30px 0px;
+        padding: 30px 0;
     }
-
 
     .tLine1,
     .progressLine {
@@ -269,7 +241,7 @@
     }
 }
 
-/* Reduced motion preferences */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 
     .tCircle,
@@ -292,17 +264,9 @@
     .cardsContainer>div {
         filter: none;
     }
-
-    .experienceSection::after {
-        animation: none;
-    }
-
-    .tCircle::before {
-        display: none;
-    }
 }
 
-
+/* Will-change optimizations */
 .tCircle,
 .movingCircle,
 .progressLine {

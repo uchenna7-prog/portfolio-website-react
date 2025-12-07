@@ -1,56 +1,67 @@
-
+/* ---------------- Global CSS ---------------- */
 * {
   box-sizing: border-box;
-  
 }
 
 :root {
+  /* Font size */
   font-size: 19px;
-  --heroBackground:linear-gradient(to top left, #0e60b3, white);
-  --bg:#edf2fc;
+
+  /* Backgrounds */
+  --heroBackground: linear-gradient(to top left, #0e60b3, #ffffff);
+  --bg: #edf2fc;
+  --divBackground: #ffffff;
+  --footerBackground: rgb(170, 169, 169);
+
+  /* Borders & highlights */
   --border: #0e60b3;
-  --color1: black;
-  --color2:black;
-  --divBackground:white;
-  --footerBackground:rgb(170, 169, 169);
-  --buttonTextColor1: black;
-  --buttonTextColor2: white;
-  --buttonColor:#62a9f0;
-  --projectLiveDemoBtn:linear-gradient(to top left, #0e60b3, rgba(235,235,235,0.5));
-  --projectViewSourceCodeBtn:black;
   --horizontalRuleColor: rgba(0, 0, 0, 0.6);
-   
+
+  /* Text colors */
+  --color1: #000000; /* general text */
+  --color2: #000000; /* headings/titles */
+
+  /* Buttons */
+  --buttonColor: #62a9f0;
+  --buttonTextColor1: #000000;
+  --buttonTextColor2: #ffffff;
+  --projectLiveDemoBtn: linear-gradient(to top left, #0e60b3, rgba(235,235,235,0.5));
+  --projectViewSourceCodeBtn: #000000;
 }
 
 :root[data-theme="dark-mode"] {
-  --heroBackground: linear-gradient(to top left, #0e60b3, black);
-  --bg: rgba(10, 10, 10, 1);
+  --heroBackground: linear-gradient(to top left, #0e60b3, #000000);
+  --bg: #0a0a0a;
+  --divBackground: #141414;
+  --footerBackground: #000000;
+
   --border: #0e60b3;
-  --color1: #d0d0d0;
-  --color2: white;
-  --divBackground: rgba(20, 20, 20, 1);
-  --footerBackground:rgb(0, 0, 0) ;
-  --buttonTextColor1: white;
-  --buttonTextColor2: black;
-  --buttonColor: #0e60b3;
-  --projectLiveDemoBtn: linear-gradient(to top left, #0e60b3, rgba(20, 20, 20, 1));
-  --projectViewSourceCodeBtn: white;
   --horizontalRuleColor: rgba(255, 255, 255, 0.6);
+
+  --color1: #d0d0d0;
+  --color2: #ffffff;
+
+  --buttonColor: #0e60b3;
+  --buttonTextColor1: #ffffff;
+  --buttonTextColor2: #000000;
+  --projectLiveDemoBtn: linear-gradient(to top left, #0e60b3, #141414);
+  --projectViewSourceCodeBtn: #ffffff;
 }
 
 body {
   margin: 0;
+  font-family: "PT Sans", sans-serif;
+  color: var(--color1);
+  font-size: 1rem;
 }
 
 #main {
   position: relative;
   font-family: "PT Sans", sans-serif;
   color: var(--color1);
-  font-size: 1rem;
-
 }
 
-.sectionHeading{
+.sectionHeading {
   margin-bottom: 0;
   font-family: "Doto", sans-serif;
   font-weight: 900;
@@ -59,21 +70,21 @@ body {
   color: var(--color2);
 }
 
-.title{
-  color:var(--color2);
+.title {
+  color: var(--color2);
   font-family: "PT Sans", sans-serif;
   font-weight: 700;
   font-size: 1.4rem;
   text-transform: uppercase;
 }
 
-.link{
+.link {
   text-decoration: none;
 }
 
-@media(max-width:610px) {
-  :root{
+/* ---------------- Responsive font size ---------------- */
+@media (max-width: 610px) {
+  :root {
     font-size: 14px;
   }
-
 }
