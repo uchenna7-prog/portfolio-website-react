@@ -48,17 +48,13 @@ const letterVariants = {
 const projectVariants = {
   hidden: (index) => ({
     opacity: 0,
-    x: index % 2 === 0 ? -100 : 100,
-    y: 50,
+    y: 60,
     scale: 0.9,
-    rotateY: index % 2 === 0 ? -15 : 15,
   }),
   show: {
     opacity: 1,
-    x: 0,
     y: 0,
     scale: 1,
-    rotateY: 0,
     transition: {
       type: "spring",
       stiffness: 60,

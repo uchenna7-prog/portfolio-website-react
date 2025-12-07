@@ -216,7 +216,7 @@ export default function Experience() {
           variants={headingVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           style={{ 
             display: 'inline-flex', 
             overflow: 'hidden',
@@ -240,21 +240,16 @@ export default function Experience() {
           className={styles.headingUnderline}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
 
       <div className={styles.timelineContainer} ref={timelineRef}>
-        <motion.div 
+        <div 
           className={styles.tLine1} 
           ref={tLine1Ref}
-          variants={timelineVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.2 }}
-          style={{ originY: 0 }}
-        ></motion.div>
+        ></div>
         
         <motion.div 
           className={styles.tLine2} 
@@ -285,7 +280,7 @@ export default function Experience() {
               variants={reduceMotion ? { hidden: {}, show: {} } : cardVariants}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: false, amount: 0.1, margin: "-50px" }}
+              viewport={{ once: true, amount: 0.1, margin: "-50px" }}
               transition={{ delay: index * 0.15 }}
               whileHover={reduceMotion ? {} : { 
                 scale: 1.02,

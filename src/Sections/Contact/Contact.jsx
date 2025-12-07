@@ -146,7 +146,7 @@ function Contact() {
           variants={headingVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           style={{ 
             display: 'inline-flex', 
             overflow: 'hidden',
@@ -170,7 +170,7 @@ function Contact() {
           className={styles.headingUnderline}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
@@ -182,7 +182,7 @@ function Contact() {
           variants={reduceMotion ? {} : formVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div>
             <motion.div 
@@ -291,7 +291,7 @@ function Contact() {
           variants={reduceMotion ? {} : detailsVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <motion.h2 
             className={`${styles.secondDivFirstHeading} title`}
