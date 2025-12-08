@@ -2,6 +2,7 @@ import styles from "./Hero.module.css"
 import {Link} from "react-router-dom"
 import {delay, motion} from "framer-motion"
 
+
 const nameVariant = {
     hidden:{
         opacity:0,
@@ -93,6 +94,9 @@ function Hero(){
 
             </div>
 
+            <div className={styles.scrollDownArrowContainer}>
+                <a className="material-icons">keyboard_arrow_down</a>
+            </div>
         </section>
     )
 }

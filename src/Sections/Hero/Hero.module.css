@@ -4,6 +4,7 @@
     left: 0;
     z-index: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: var(--heroBackground);
@@ -17,7 +18,14 @@
     flex-direction: column;
     gap:5px;
 }
-
+.scrollDownArrowContainer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
 
 .name {
     font-family: "Doto", sans-serif;
