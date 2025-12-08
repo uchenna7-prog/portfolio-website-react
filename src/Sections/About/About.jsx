@@ -1,8 +1,8 @@
+import { motion, useReducedMotion } from "framer-motion";
 import styles from "./About.module.css";
 import profilePic from "../../assets/profilePic.jpg";
-import { motion, useReducedMotion } from "framer-motion";
 
-// Heading animation
+
 const headingVariants = {
   hidden: { opacity: 0 },
   show: { 
@@ -28,17 +28,15 @@ const letterVariants = {
   },
 };
 
-// Profile picture animation
+
 const imageVariants = {
   hidden: { 
     opacity: 0, 
-    scale: 0.6,
-    rotate: -10
+    scale: 0.5,
   },
   show: {
     opacity: 1,
     scale: 1,
-    rotate: 0,
     transition: {
       type: "spring",
       stiffness: 100,
@@ -48,7 +46,7 @@ const imageVariants = {
   }
 };
 
-// Text content animation
+
 const textContainerVariants = {
   hidden: { opacity: 0 },
   show: {
@@ -63,12 +61,10 @@ const textContainerVariants = {
 const paragraphVariants = {
   hidden: { 
     opacity: 0, 
-    x: 50,
-    y: 20
+    y: 60
   },
   show: {
     opacity: 1,
-    x: 0,
     y: 0,
     transition: {
       type: "spring",
@@ -78,7 +74,6 @@ const paragraphVariants = {
   }
 };
 
-// Location animation
 const locationVariants = {
   hidden: { 
     opacity: 0, 
@@ -111,7 +106,7 @@ function About() {
           variants={headingVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: false, amount: 0.8 }}
           style={{ 
             display: 'inline-flex', 
             overflow: 'hidden',
@@ -135,7 +130,7 @@ function About() {
           className={styles.headingUnderline}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: false, amount: 0.8 }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
@@ -150,7 +145,7 @@ function About() {
           variants={reduceMotion ? {} : imageVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: false, amount: 0.5 }}
           whileHover={reduceMotion ? {} : { 
             scale: 1.05,
             rotate: 5,
@@ -169,7 +164,7 @@ function About() {
           variants={reduceMotion ? {} : textContainerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
         >
           <motion.p
             variants={paragraphVariants}
