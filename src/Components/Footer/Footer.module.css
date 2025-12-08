@@ -6,31 +6,33 @@
     height:150px ;
 
 }
+
 .footerSection > div{
+    height: fit-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
 }
-.nameContainer{
-    margin-left: 30px;
+
+.logoContainer{
+    padding-left: 30px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    font-size: 1rem;
-    font-weight: 900;
-    text-transform: uppercase;
+    width: fit-content;
 
-  
 }
+
+.logo{
+    width: 2rem;
+    height: 2rem;
+}
+
 .socialIconsContainer {
     width: fit-content;
     display: flex;
-    gap: 1rem;
-    margin-right: 30px;
-    margin-top: auto;
-    margin-bottom: auto;
-
+    gap: 25px;
+    padding-right: 30px;
 }
 
 .socialIcon {
@@ -38,38 +40,36 @@
     background-color:transparent;
     backdrop-filter: blur(5px);
     font-size: 0.7em;
-    padding: 6px;
+    padding: 7px;
     border-radius: 10px;
-
 }
+
 .socialIcon:hover{
     transform: scale(1.2);
 }
+
 .copyRightContainer{
     text-align: center;
     margin: 2em;
     font-size: 0.8em;
 }
+
 .horizontalRule{
     display: block;
     height: 1px;
     border: 0;
     background:linear-gradient(to right,transparent,var(--horizontalRuleColor),transparent);
 }
-.logo {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 5px;
-}
 
 @media(max-width:900px){
 
-    .nameContainer{
-        margin-left: 10px;
+    .logoContainer{
+        padding-left: 20px;
     }
         
     .socialIconsContainer{
-        margin-right: 10px;
+        gap: 17px;
+        padding-right: 20px;
     }
 
 }

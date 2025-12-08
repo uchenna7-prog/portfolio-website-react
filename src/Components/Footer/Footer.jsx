@@ -1,17 +1,18 @@
+import { useTheme } from "../../Context/ThemeContext" 
 import styles from "./Footer.module.css"
-import logo from "/logo.png"
+import logo1 from "/logo1.png"
 import logo2 from "/logo2.png"
-import { useTheme } from "../../Context/ThemeContext"   
-
+  
 
 function Footer(){
     const {theme} = useTheme()
     return(
 
         <footer className={styles.footerSection}>
+
             <div>
-                <div className={styles.nameContainer}>
-                   <img src={theme==="light-mode"? logo : logo2} className={styles.logo}></img>
+                <div className={styles.logoContainer}>
+                   <img src={theme==="light-mode"? logo1 : logo2} className={styles.logo}></img>
                 </div>
                 
                 <div className={styles.socialIconsContainer}>
@@ -22,7 +23,7 @@ function Footer(){
             </div>
             <hr className={styles.horizontalRule}/>
             <p className={styles.copyRightContainer}>
-                &copy; 2024 uchendu uchenna. All rights reserved.
+                &copy; 2025 uchendu uchenna. All rights reserved.
             </p>
            
         </footer>
