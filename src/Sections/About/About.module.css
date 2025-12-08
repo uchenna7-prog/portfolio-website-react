@@ -7,8 +7,6 @@
     align-items: center;
 }
 
-
-
 @keyframes float {
 
     0%,
@@ -26,7 +24,7 @@
 }
 
 
-.headingWrapper {
+.headingContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,7 +108,7 @@
     box-shadow: 0 6px 20px rgba(14, 96, 179, 0.2);
 }
 
-.locationIconWrapper {
+.locationIconContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,7 +132,7 @@
     color: var(--color);
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 900px) {
     .aboutSection {
         padding: 50px 25px;
@@ -201,12 +199,12 @@
     }
 }
 
-/* Reduced motion preferences */
+
 @media (prefers-reduced-motion: reduce) {
 
     .profilePicture,
     .locationContainer,
-    .locationIconWrapper,
+    .locationIconContainer,
     .locationSVG {
         transition: none;
         animation: none;
@@ -217,7 +215,7 @@
     }
 }
 
-/* Performance optimizations */
+
 .profilePicture {
     will-change: transform, filter;
 }

@@ -28,7 +28,6 @@ const letterVariants = {
   },
 };
 
-
 const imageVariants = {
   hidden: { 
     opacity: 0, 
@@ -61,7 +60,7 @@ const textContainerVariants = {
 const paragraphVariants = {
   hidden: { 
     opacity: 0, 
-    y: 60
+    y: 70
   },
   show: {
     opacity: 1,
@@ -99,19 +98,14 @@ function About() {
 
   return (
     <section className={styles.aboutSection} id="About">
-      {/* Animated heading */}
-      <div className={styles.headingWrapper}>
+ 
+      <div className={styles.headingContainer}>
         <motion.h2
           className="sectionHeading"
           variants={headingVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.8 }}
-          style={{ 
-            display: 'inline-flex', 
-            overflow: 'hidden',
-            perspective: '1000px'
-          }}
+          viewport={{ once: true, amount: 0.8 }}
         >
           {headingText.split('').map((letter, index) => (
             <motion.span
@@ -130,25 +124,22 @@ function About() {
           className={styles.headingUnderline}
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          viewport={{ once: false, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
 
-
       <div className={styles.aboutSectionContentContainer}>
-        {/* Animated profile picture */}
         <motion.img 
           className={styles.profilePicture} 
           src={profilePic} 
-          alt="Profile"
+          alt="ProfilePic"
           variants={reduceMotion ? {} : imageVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.5 }}
           whileHover={reduceMotion ? {} : { 
             scale: 1.05,
-            rotate: 5,
             filter: "grayscale(100%)",
             transition: { 
               type: "spring", 
@@ -156,15 +147,22 @@ function About() {
               damping: 15 
             }
           }}
-          whileTap={{ scale: 0.95 }}
+          whileTap={{
+            scale: 1.05,
+            filter: "grayscale(100%)",
+            transition: { 
+              type: "spring", 
+              stiffness: 300, 
+              damping: 15 
+            }  
+          }}
         />
 
-        {/* Animated text content */}
         <motion.div
           variants={reduceMotion ? {} : textContainerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <motion.p
             variants={paragraphVariants}
@@ -188,7 +186,6 @@ function About() {
             genuine enthusiasm to the table, let's connect.
           </motion.p>
 
-          {/* Animated location */}
           <motion.div 
             className={styles.locationContainer}
             variants={reduceMotion ? {} : locationVariants}
@@ -204,7 +201,7 @@ function About() {
             whileTap={{ scale: 0.98 }}
           >
             <motion.div 
-              className={styles.locationIconWrapper}
+              className={styles.locationIconContainer}
               animate={reduceMotion ? {} : {
                 rotate: [-8, 8, -8],
               }}
