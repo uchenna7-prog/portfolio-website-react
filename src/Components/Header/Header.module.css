@@ -1,24 +1,22 @@
 .headerSection{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3000;
     color:var(--color2);
     background-color: transparent;
     backdrop-filter: blur(50px);
     width: 100%;
-    height: 10vh;
-    position: fixed;
-    top:0;
-    left: 0;
-    z-index: 3000;
+    height: 60px;
 }
 
 .headerContainer{
     height: 100%;
     width: 100%;
-    margin-right: 30px;
     display:flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .navLinksContainer{
@@ -26,10 +24,10 @@
     flex-direction: row;
     align-items: center;
     gap:25px;
-    justify-content: space-around;
     padding-right: 30px;
     width: fit-content;
 }
+
 .navLink{
     text-decoration:none;
     color: var(--color2);
@@ -38,19 +36,27 @@
     font-size: 1rem;
     font-family: "Roboto", sans-serif;
 }
+
 .navLink:hover{
     color:#0e60b3;
 }
+
 .logo{
-    margin-left: 30px;
     width: 2rem;
     height: 2rem;
-    border-radius: 5px;
+}
+
+.logoContainer{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding-left: 30px;
 }
 
 .toggleThemeBtn,.menuBtn,.logo{
     cursor:pointer;
 }
+
 .menuBtn{
     display:none;
 }
@@ -65,8 +71,8 @@
     height: 100vh;
     width: 100vw;
     transition: transform 0.7s ease-in-out;
-    
 }
+
 .activeMobileMenu{
     transform: translateY(0);
     transition: transform 1s ease-in-out;
@@ -77,41 +83,45 @@
     align-items: center;
     gap: 20px;
 }
+
 .menuOptionsContainer{
     padding: 20px;
     font-size: 1.5rem;
-    justify-content: center;
-    align-items: start;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap:35px;
+    height: 100%;
+
 }
+
 .mobileMenuOption{
-    margin: 20px 0;
+    background-color: blue;
     text-decoration:none;
     color: var(--color1);
     cursor: pointer;
     font-weight: 500;
-
 }
-@media(max-width:900px){
-    .navLinksContainer {
-        gap:15px;
-        margin-right: 10px;   
 
-    }
-    .logo {
-        margin-left: 10px;
-    }
+@media(max-width:900px){
     .navLink{
         display: none;
     }
+
     .menuBtn {
         display: block;
-        }
-    .headerContainer{
-        padding-right: 10px;
     }
+
+    .logoContainer {
+        padding-left: 20px;
+    }
+
+    .navLinksContainer {
+        gap: 17px;
+        padding-right: 20px;
+    }
+
     .headerSection {
         background-color: rgba(0,0,0,0.5);
     }

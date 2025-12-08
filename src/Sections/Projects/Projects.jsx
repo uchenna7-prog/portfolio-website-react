@@ -110,7 +110,7 @@ function Projects() {
   ];
 
   return (
-    <section className={styles.projectsSection} id="projects">
+    <section className={styles.projectsSection} id="Projects">
       {/* Animated heading */}
       <div className={styles.headingWrapper}>
         <motion.h2

@@ -103,7 +103,7 @@ function About() {
   const headingText = "ABOUT ME";
 
   return (
-    <section className={styles.aboutSection} id="about">
+    <section className={styles.aboutSection} id="About">
       {/* Animated heading */}
       <div className={styles.headingWrapper}>
         <motion.h2

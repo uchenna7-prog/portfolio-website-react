@@ -85,7 +85,7 @@ export default function Services() {
   ];
 
   return (
-    <section className={styles.servicesSection} id="services">
+    <section className={styles.servicesSection} id="Services">
       {/* Animated heading */}
       <div className={styles.headingWrapper}>
         <motion.h1

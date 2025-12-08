@@ -74,7 +74,7 @@ function Skills() {
     ];
 
     return (
-        <section className={styles.skillsSection} id="skills">
+        <section className={styles.skillsSection} id="Skills">
           
             <div className={styles.headingWrapper}>
                 <motion.h2

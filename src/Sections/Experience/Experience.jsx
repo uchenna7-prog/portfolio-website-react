@@ -209,7 +209,7 @@ export default function Experience() {
   const headingText = "EXPERIENCE";
 
   return (
-    <section className={styles.experienceSection}>
+    <section className={styles.experienceSection} id="Experience">
       <div className={styles.headingWrapper}>
         <motion.h2
           className="sectionHeading"

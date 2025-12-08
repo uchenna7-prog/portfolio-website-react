@@ -138,7 +138,7 @@ function Contact() {
   const inputVariants = getInputVariants(isMobile);
 
   return (
-    <section className={styles.contactSection} id="contact">
+    <section className={styles.contactSection} id="Contact">
       {/* Animated heading */}
       <div className={styles.headingWrapper}>
         <motion.h2

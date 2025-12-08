@@ -1,8 +1,9 @@
-import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
-import logo from "/logo.png"
-import logo2 from "/logo2.png"
 import { useTheme } from "../../Context/ThemeContext";
+import styles from "./Header.module.css";
+import logo1 from "/logo1.png"
+import logo2 from "/logo2.png"
+
 function Header() {
 
   const {theme,toggleTheme} = useTheme()
@@ -32,7 +33,7 @@ function Header() {
             <span className={styles.mobileMenuOptionContainer} key={index}>
               <i className={item.icon}></i>
               <a
-                href={`#${item.label.toLowerCase()}`}
+                href={`#${item.label}`}
                 className={styles.mobileMenuOption}
                 onClick={toggleMenu}
               >
@@ -46,20 +47,21 @@ function Header() {
       <header className={styles.headerSection}>
         <div className={styles.headerContainer}>
 
-          <img src={theme ==="light-mode" ? logo: logo2} className={styles.logo} alt="logo"></img>
-
+          <div className={styles.logoContainer}>
+            <img src={theme ==="light-mode" ? logo1: logo2} className={styles.logo} alt="logo"></img>
+          </div>
+      
           <nav className={styles.navLinksContainer}>
-            {navItems.map((item, i) => (
+            {navItems.map((item, index) => (
               <a
-                href={`#${item.label.toLowerCase()}`}
+                href={`#${item.label}`}
                 className={styles.navLink}
-                key={i}
+                key={index}
               >
                 {item.label}
               </a>
             ))}
 
-       
             <span
               className={`${styles.toggleThemeBtn} material-icons`}
               onClick={toggleTheme}
