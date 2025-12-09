@@ -18,32 +18,7 @@ import portfolioContact from "../../assets/PortfolioScreenshots/portfolioContact
 
 import imageEditorHome from "../../assets/ImageEditorScreenshots/image-editor.jpeg";
 import crop from "../../assets/ImageEditorScreenshots/crop.jpeg";
-
-
-const headingVariants = {
-  hidden: { opacity: 0 },
-  show: { 
-    opacity: 1,
-    transition: { 
-      staggerChildren: 0.05,
-      delayChildren: 0.1
-    } 
-  },
-};
-
-const letterVariants = {
-  hidden: { opacity: 0, y: 50, rotateX: -90 },
-  show: { 
-    opacity: 1, 
-    y: 0,
-    rotateX: 0,
-    transition: { 
-      type: "spring",
-      damping: 12,
-      stiffness: 100
-    } 
-  },
-};
+import SectionHeading from "../../Components/SectionHeading/SectionHeading";
 
 
 const projectVariants = {
@@ -65,7 +40,7 @@ const projectVariants = {
   }
 };
 
-// Button animation
+
 const buttonVariants = {
   hidden: { 
     opacity: 0, 
@@ -87,7 +62,6 @@ const buttonVariants = {
 
 function Projects() {
   const reduceMotion = useReducedMotion();
-  const headingText = "RECENT PROJECTS";
 
   const projects = [
     {
@@ -112,40 +86,8 @@ function Projects() {
 
   return (
     <section className={styles.projectsSection} id="Projects">
-      <div className={styles.headingWrapper}>
-        <motion.h2
-          className="sectionHeading"
-          variants={headingVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.8 }}
-          style={{ 
-            display: 'inline-flex', 
-            overflow: 'hidden',
-            perspective: '1000px'
-          }}
-        >
-          {headingText.split('').map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={letterVariants}
-              style={{ 
-                display: 'inline-block',
-                transformOrigin: 'bottom'
-              }}
-            >
-              {letter === ' ' ? '\u00A0' : letter}
-            </motion.span>
-          ))}
-        </motion.h2>
-        <motion.div 
-          className={styles.headingUnderline}
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        />
-      </div>
+
+      <SectionHeading headingText="RECENT PROJECTS"/>
 
       <div className={styles.projectsContainer}>
         {projects.map((project, index) => (

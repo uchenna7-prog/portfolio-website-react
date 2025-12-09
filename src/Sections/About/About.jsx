@@ -1,32 +1,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import styles from "./About.module.css";
 import profilePic from "../../assets/profilePic.jpg";
+import SectionHeading from "../../Components/SectionHeading/SectionHeading";
 
-
-const headingVariants = {
-  hidden: { opacity: 0 },
-  show: { 
-    opacity: 1,
-    transition: { 
-      staggerChildren: 0.05,
-      delayChildren: 0.1
-    } 
-  },
-};
-
-const letterVariants = {
-  hidden: { opacity: 0, y: 50, rotateX: -90 },
-  show: { 
-    opacity: 1, 
-    y: 0,
-    rotateX: 0,
-    transition: { 
-      type: "spring",
-      damping: 12,
-      stiffness: 100
-    } 
-  },
-};
 
 const imageVariants = {
   hidden: { 
@@ -94,40 +70,11 @@ const locationVariants = {
 
 function About() {
   const reduceMotion = useReducedMotion();
-  const headingText = "ABOUT ME";
 
   return (
     <section className={styles.aboutSection} id="About">
- 
-      <div className={styles.headingContainer}>
-        <motion.h2
-          className="sectionHeading"
-          variants={headingVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.8 }}
-        >
-          {headingText.split('').map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={letterVariants}
-              style={{ 
-                display: 'inline-block',
-                transformOrigin: 'bottom'
-              }}
-            >
-              {letter === ' ' ? '\u00A0' : letter}
-            </motion.span>
-          ))}
-        </motion.h2>
-        <motion.div 
-          className={styles.headingUnderline}
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        />
-      </div>
+
+      <SectionHeading headingText="ABOUT"/>
 
       <div className={styles.aboutSectionContentContainer}>
         <motion.img 
