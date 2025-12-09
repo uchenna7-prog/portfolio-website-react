@@ -1,7 +1,5 @@
 .serviceCard {
     padding: 25px 20px;
-    flex: 1 1 300px;
-    max-width: 350px;
     border: 2px solid rgba(14, 96, 179, 0.3);
     border-radius: 15px;
     background: linear-gradient(135deg, rgba(14, 96, 179, 0.02), rgba(14, 96, 179, 0.05));
@@ -10,7 +8,7 @@
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .serviceCard:hover {
@@ -37,11 +35,4 @@
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 12px;
-}
-
-@media (max-width: 650px) {
-    .serviceCard {
-        flex: 1 1 90%;
-        max-width: 90%;
-    }
 }

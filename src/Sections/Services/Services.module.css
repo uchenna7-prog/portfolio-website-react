@@ -1,14 +1,12 @@
 .servicesSection {
     padding: 60px 20px;
     background: var(--bg);
-    position: relative;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.headingWrapper {
+.headingContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,34 +29,32 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
     gap: 35px;
-    flex-wrap: wrap;
-    max-width: 1400px;
-    position: relative;
-    z-index: 10;
-    padding: 0 10px;
+    width: 90%;
+  
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .cardsContainer {
-        gap: 30px;
+        gap: 35px;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
 @media (max-width: 650px) {
     .cardsContainer {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
+        width: 85%;
     }
 
     .servicesSection {
         padding: 40px 15px;
     }
 
-    .headingWrapper {
+    .headingContainer {
         margin-bottom: 50px;
     }
 
@@ -67,40 +63,4 @@
         height: 2px;
         margin-top: 10px;
     }
-
-    .cardsContainer:hover>div:not(:hover) {
-        filter: none;
-    }
-
-    .cardsContainer>div::before {
-        display: none;
-    }
-
-    .servicesSection::after {
-        width: 250px;
-        height: 250px;
-        bottom: 15%;
-        left: 10%;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .cardsContainer>div,
-    .cardsContainer>div::before {
-        transition: none;
-        animation: none;
-    }
-
-    .servicesSection::after {
-        animation: none;
-    }
-
-    .cardsContainer:hover>div:not(:hover) {
-        filter: none;
-    }
-}
-
-.cardsContainer>div {
-    will-change: transform, filter;
 }

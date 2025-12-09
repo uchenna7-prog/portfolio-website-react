@@ -83,7 +83,7 @@ export default function Services() {
 
   return (
     <section className={styles.servicesSection} id="Services">
-      <div className={styles.headingWrapper}>
+      <div className={styles.headingContainer}>
         <motion.h1
           className="sectionHeading"
           variants={headingVariants}

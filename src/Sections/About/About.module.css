@@ -112,14 +112,7 @@
 }
 
 
-@media (max-width: 900px) {
-    .aboutSection {
-        padding: 50px 25px;
-    }
-
-    .aboutSectionContentContainer {
-        gap: 40px;
-    }
+@media (max-width: 1000px) {
 
     .aboutSectionContentContainer>div {
         width: 100%;
@@ -184,11 +177,3 @@
 
 }
 
-
-.profilePicture {
-    will-change: transform, filter;
-}
-
-.locationContainer {
-    will-change: transform, background-color;
-}

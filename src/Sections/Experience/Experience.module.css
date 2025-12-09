@@ -88,8 +88,8 @@
 .movingCircle {
     position: absolute;
     transform: translateX(-50%);
-    height: 11px;
-    width: 11px;
+    height: 13px;
+    width: 13px;
     border-radius: 50%;
 }
 

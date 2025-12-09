@@ -47,7 +47,6 @@ const getFormVariants = (isMobile) => ({
   }
 });
 
-// Input variants - adaptive based on screen size
 const getInputVariants = (isMobile) => ({
   hidden: { 
     opacity: 0, 
@@ -136,7 +135,7 @@ function Contact() {
 
   return (
     <section className={styles.contactSection} id="Contact">
-      <div className={styles.headingWrapper}>
+      <div className={styles.headingContainer}>
         <motion.h2
           className="sectionHeading"
           variants={headingVariants}
