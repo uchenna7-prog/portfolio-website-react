@@ -23,7 +23,7 @@
 .pixel {
     width: 10px;
     height: 10px;
-    background: rgba(2, 5, 53, 0.1);
+    background: var(--pixelColor);
     border-radius: 1px;
     transition: all 0.2s ease;
 }

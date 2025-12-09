@@ -85,24 +85,6 @@ function About() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
-          whileHover={reduceMotion ? {} : { 
-            scale: 1.05,
-            filter: "grayscale(100%)",
-            transition: { 
-              type: "spring", 
-              stiffness: 300, 
-              damping: 15 
-            }
-          }}
-          whileTap={{
-            scale: 1.05,
-            filter: "grayscale(100%)",
-            transition: { 
-              type: "spring", 
-              stiffness: 300, 
-              damping: 15 
-            }  
-          }}
         />
 
         <motion.div

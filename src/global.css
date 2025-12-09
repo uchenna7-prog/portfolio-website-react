@@ -1,27 +1,18 @@
-/* ---------------- Global CSS ---------------- */
+
 * {
   box-sizing: border-box;
 }
 
 :root {
-  /* Font size */
   font-size: 19px;
-
-  /* Backgrounds */
+  --pixelColor:rgba(118, 120, 165, 0.1);
   --heroBackground: linear-gradient(to top left, #0e60b3, #ffffff);
   --bg: #edf2fc;
-  --divBackground: #ffffff;
   --footerBackground: rgb(170, 169, 169);
-
-  /* Borders & highlights */
   --border: #0e60b3;
   --horizontalRuleColor: rgba(0, 0, 0, 0.6);
-
-  /* Text colors */
-  --color1: #000000; /* general text */
-  --color2: #000000; /* headings/titles */
-
-  /* Buttons */
+  --color1: #000000; 
+  --color2: #000000; 
   --buttonColor: #62a9f0;
   --buttonTextColor1: #000000;
   --buttonTextColor2: #ffffff;
@@ -31,16 +22,13 @@
 
 :root[data-theme="dark-mode"] {
   --heroBackground: linear-gradient(to top left, #0e60b3, #000000);
+  --pixelColor: rgba(12, 15, 56, 0.1);
   --bg: #0a0a0a;
-  --divBackground: #141414;
   --footerBackground: #000000;
-
   --border: #0e60b3;
   --horizontalRuleColor: rgba(255, 255, 255, 0.6);
-
   --color1: #d0d0d0;
   --color2: #ffffff;
-
   --buttonColor: #0e60b3;
   --buttonTextColor1: #ffffff;
   --buttonTextColor2: #000000;
@@ -82,7 +70,6 @@ body {
   text-decoration: none;
 }
 
-/* ---------------- Responsive font size ---------------- */
 @media (max-width: 610px) {
   :root {
     font-size: 14px;

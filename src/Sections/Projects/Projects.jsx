@@ -145,9 +145,6 @@ function Projects() {
             </motion.span>
             <motion.i 
               className="material-icons"
-              initial={{ x: 0, rotate: 0 }}
-              whileHover={{ x: 5, rotate: 45 }}
-              transition={{ type: "spring", stiffness: 300, damping: 10 }}
             >
               arrow_forward
             </motion.i>
