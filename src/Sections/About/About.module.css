@@ -1,28 +1,10 @@
 .aboutSection {
     background: var(--bg);
     padding: 60px 30px;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    33% {
-        transform: translate(-30px, -30px) scale(1.1);
-    }
-
-    66% {
-        transform: translate(20px, 30px) scale(0.9);
-    }
-}
-
 
 .headingContainer {
     display: flex;
@@ -53,7 +35,6 @@
 
 .aboutSectionContentContainer>div {
     width: 60%;
-    min-width: 280px;
 }
 
 .aboutSectionContentContainer p {
@@ -77,14 +58,13 @@
 
 }
 
-
-
 .profilePicture:hover {
+    filter: grayscale(100%);
     border-color: #1a7dd4;
     box-shadow:
         0 12px 40px rgba(14, 96, 179, 0.4),
         0 0 80px rgba(14, 96, 179, 0.2),
-        inset 0 0 30px rgba(14, 96, 179, 0.1);
+        inset 0 0 30px rgba(14, 96, 179, 0.1);   
 }
 
 .locationContainer {
@@ -112,7 +92,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform-origin: bottom center;
 }
 
 .locationSVG {
@@ -149,7 +128,6 @@
     .profilePicture {
         width: 250px;
         height: 250px;
-        margin: 0 auto;
     }
 
 }
@@ -158,7 +136,6 @@
     .aboutSection {
         padding: 40px 20px;
     }
-
 
     .headingUnderline {
         width: 60px;
@@ -192,11 +169,6 @@
         height: 1rem;
     }
 
-    .aboutSection::after {
-        width: 200px;
-        height: 200px;
-        right: 5%;
-    }
 }
 
 
@@ -210,9 +182,6 @@
         animation: none;
     }
 
-    .aboutSection::after {
-        animation: none;
-    }
 }
 
 

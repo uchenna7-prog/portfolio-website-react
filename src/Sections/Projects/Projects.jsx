@@ -1,7 +1,8 @@
-import styles from "./Projects.module.css";
-import ProjectCard from "../../Components/ProjectCard/ProjectCard";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
+
+import styles from "./Projects.module.css";
+import ProjectCard from "../../Components/ProjectCard/ProjectCard";
 
 import cgpaCalcHome from "../../assets/CgpaCalcScreenshots/cgpaCalcHome.png";
 import cgpaCalc from "../../assets/CgpaCalcScreenshots/cgpaCalc.png";
@@ -18,7 +19,7 @@ import portfolioContact from "../../assets/PortfolioScreenshots/portfolioContact
 import imageEditorHome from "../../assets/ImageEditorScreenshots/image-editor.jpeg";
 import crop from "../../assets/ImageEditorScreenshots/crop.jpeg";
 
-// Heading animation
+
 const headingVariants = {
   hidden: { opacity: 0 },
   show: { 
@@ -44,7 +45,7 @@ const letterVariants = {
   },
 };
 
-// Project card animation with alternating directions
+
 const projectVariants = {
   hidden: (index) => ({
     opacity: 0,
@@ -111,7 +112,6 @@ function Projects() {
 
   return (
     <section className={styles.projectsSection} id="Projects">
-      {/* Animated heading */}
       <div className={styles.headingWrapper}>
         <motion.h2
           className="sectionHeading"
@@ -147,7 +147,6 @@ function Projects() {
         />
       </div>
 
-      {/* Animated project cards */}
       <div className={styles.projectsContainer}>
         {projects.map((project, index) => (
           <motion.div
@@ -174,7 +173,6 @@ function Projects() {
         ))}
       </div>
 
-      {/* Animated button */}
       <motion.div
         variants={reduceMotion ? {} : buttonVariants}
         initial="hidden"

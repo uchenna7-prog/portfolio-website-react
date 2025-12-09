@@ -141,7 +141,6 @@ function Skills() {
                                     className={`ci ${skill.icon}`}
                                     whileHover={reduceMotion ? {} : {
                                         scale: 1.3,
-                                        rotate: 360,
                                         transition: {
                                             duration: 0.5
                                         }

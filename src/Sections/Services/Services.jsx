@@ -1,8 +1,8 @@
+import { motion, useReducedMotion } from "framer-motion";
 import styles from "./Services.module.css";
 import ServiceCard from "./ServiceCard/ServicesCard";
-import { motion, useReducedMotion } from "framer-motion";
 
-// Heading animation
+
 const headingVariants = {
   hidden: { opacity: 0 },
   show: { 
@@ -28,7 +28,7 @@ const letterVariants = {
   },
 };
 
-// Cards container animation
+
 const containerVariants = {
   hidden: { opacity: 0 },
   show: {
@@ -40,19 +40,16 @@ const containerVariants = {
   }
 };
 
-// Individual card animation
 const cardVariants = {
-  hidden: (index) => ({
+  hidden: {
     opacity: 0,
     y: 80,
     scale: 0.85,
-    rotateY: index === 1 ? 0 : index === 0 ? -20 : 20,
-  }),
+  },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    rotateY: 0,
     transition: {
       type: "spring",
       stiffness: 70,
@@ -86,7 +83,6 @@ export default function Services() {
 
   return (
     <section className={styles.servicesSection} id="Services">
-      {/* Animated heading */}
       <div className={styles.headingWrapper}>
         <motion.h1
           className="sectionHeading"
@@ -122,7 +118,6 @@ export default function Services() {
         />
       </div>
       
-      {/* Animated cards container */}
       <motion.div 
         className={styles.cardsContainer}
         variants={reduceMotion ? {} : containerVariants}
@@ -136,18 +131,12 @@ export default function Services() {
             custom={index}
             variants={reduceMotion ? {} : cardVariants}
             whileHover={reduceMotion ? {} : {
-              y: -15,
-              scale: 1.05,
-              rotateY: index === 1 ? 0 : index === 0 ? 5 : -5,
+              scale: 1.02,
               transition: {
                 type: "spring",
                 stiffness: 300,
                 damping: 20
               }
-            }}
-            style={{
-              perspective: "1500px",
-              transformStyle: "preserve-3d"
             }}
           >
             <ServiceCard 

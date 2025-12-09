@@ -1,10 +1,10 @@
+import { useRef, useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import styles from "./Experience.module.css";
 import ExperienceCard from "./ExperienceCard";
-import { useRef, useEffect, useState } from "react";
 import uniportLogo from "/uniportLogo.png";
 import codeLogo from "/codeLogo.png";
 import brandLogo from "/brandLogo.png";
-import { motion, useReducedMotion } from "framer-motion";
 
 
 const headingVariants = {

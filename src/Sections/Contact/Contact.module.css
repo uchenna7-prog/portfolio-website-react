@@ -5,22 +5,8 @@
     width: 100vw;
     background-color: var(--bg);
     padding: 60px 0;
-    position: relative;
-    overflow: hidden;
 }
 
-/* Subtle background effects */
-.contactSection::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(ellipse at 50% 50%, rgba(14, 96, 179, 0.05) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 1;
-}
 
 .headingWrapper {
     display: flex;
@@ -309,7 +295,7 @@
     box-shadow: 0 6px 25px rgba(14, 96, 179, 0.5);
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 900px) {
     .contactContainer {
         width: 90%;
@@ -363,7 +349,6 @@
         padding: 10px;
     }
 
-    /* Mobile-specific optimizations */
     .formInput:hover::placeholder {
         transform: none;
     }
@@ -373,7 +358,7 @@
     }
 }
 
-/* Reduced motion preferences */
+
 @media (prefers-reduced-motion: reduce) {
 
     .formInput,
@@ -394,7 +379,6 @@
     }
 }
 
-/* Performance optimizations */
 .formInput,
 .formButton {
     will-change: transform, border-color;

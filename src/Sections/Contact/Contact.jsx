@@ -1,8 +1,7 @@
-import styles from "./Contact.module.css";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useEffect } from "react";
+import styles from "./Contact.module.css";
 
-// Heading animation
 const headingVariants = {
   hidden: { opacity: 0 },
   show: { 
@@ -28,7 +27,6 @@ const letterVariants = {
   },
 };
 
-// Form animation - different for mobile and desktop
 const getFormVariants = (isMobile) => ({
   hidden: { 
     opacity: 0, 
@@ -68,7 +66,6 @@ const getInputVariants = (isMobile) => ({
   }
 });
 
-// Contact details animation
 const detailsVariants = {
   hidden: { opacity: 0, x: 60, scale: 0.95 },
   show: {
@@ -139,7 +136,6 @@ function Contact() {
 
   return (
     <section className={styles.contactSection} id="Contact">
-      {/* Animated heading */}
       <div className={styles.headingWrapper}>
         <motion.h2
           className="sectionHeading"
@@ -286,7 +282,6 @@ function Contact() {
           </div>
         </motion.form>
 
-        {/* Animated contact details */}
         <motion.div
           variants={reduceMotion ? {} : detailsVariants}
           initial="hidden"

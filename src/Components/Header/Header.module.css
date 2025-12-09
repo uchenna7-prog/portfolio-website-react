@@ -78,12 +78,6 @@
     transition: transform 1s ease-in-out;
 }
 
-.mobileMenuOptionContainer{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
 .menuOptionsContainer{
     padding: 20px;
     font-size: 1.5rem;
@@ -96,7 +90,6 @@
 }
 
 .mobileMenuOption{
-    background-color: blue;
     text-decoration:none;
     color: var(--color1);
     cursor: pointer;

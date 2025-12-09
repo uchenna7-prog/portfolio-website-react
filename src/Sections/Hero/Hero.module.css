@@ -12,19 +12,26 @@
     padding: 30px;
 }
 
-.heroSection > div{
+.contentContainer{
     padding: 30px 10px;
     display: flex;
     flex-direction: column;
     gap:5px;
 }
 .scrollDownArrowContainer{
+    height: 3rem;
     position: absolute;
     bottom: 0;
     width: 100%;
     display: flex; 
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+}
+
+.scrollDownArrowContainer > a{
+    text-decoration: none;
+    color: var(--color1);
+    cursor: pointer;
 }
 
 .name {

@@ -8,15 +8,7 @@ function Header() {
 
   const {theme,toggleTheme} = useTheme()
 
-  const navItems = [
-    { label: "About", icon: "fa-solid fa-user" },
-    { label: "Services", icon: "fa-solid fa-briefcase" },
-    { label: "Skills", icon: "fa-solid fa-code" },
-    { label: "Projects", icon: "fa-solid fa-diagram-project" },
-    { label: "Experience", icon: "fa-solid fa-clock-rotate-left" },
-    { label: "Contact", icon: "fa-solid fa-envelope" },
-  ];
-
+  const navItems = ["About" ,"Services" ,"Skills","Projects" ,"Experience","Contact" ];
 
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(prev => !prev);
@@ -30,16 +22,14 @@ function Header() {
       >
         <div className={styles.menuOptionsContainer}>
           {navItems.map((item, index) => (
-            <span className={styles.mobileMenuOptionContainer} key={index}>
-              <i className={item.icon}></i>
               <a
-                href={`#${item.label}`}
+                key={index}
+                href={`#${item}`}
                 className={styles.mobileMenuOption}
                 onClick={toggleMenu}
               >
-                {item.label}
+                {item}
               </a>
-            </span>
           ))}
         </div>
       </div>
@@ -54,11 +44,11 @@ function Header() {
           <nav className={styles.navLinksContainer}>
             {navItems.map((item, index) => (
               <a
-                href={`#${item.label}`}
+                href={`#${item}`}
                 className={styles.navLink}
                 key={index}
               >
-                {item.label}
+                {item}
               </a>
             ))}
 

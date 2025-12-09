@@ -1,41 +1,9 @@
 .projectsSection {
     background: var(--bg);
     padding: 50px 0;
-    position: relative;
-    overflow: hidden;
     min-height: 100vh;
 }
 
-/* Subtle background effects */
-.projectsSection::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(ellipse at 50% 30%, rgba(14, 96, 179, 0.04) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Animated particles background */
-.projectsSection::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-        radial-gradient(circle at 25% 40%, rgba(14, 96, 179, 0.03) 2px, transparent 2px),
-        radial-gradient(circle at 75% 60%, rgba(14, 96, 179, 0.03) 2px, transparent 2px);
-    background-size: 60px 60px, 90px 90px;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.6;
-    animation: float 25s ease-in-out infinite;
-}
 
 @keyframes float {
 
@@ -53,7 +21,7 @@
     }
 }
 
-/* Center the heading */
+
 .headingWrapper {
     display: flex;
     flex-direction: column;
@@ -73,7 +41,6 @@
     box-shadow: 0 0 10px rgba(14, 96, 179, 0.5);
 }
 
-/* Projects container for consistent spacing */
 .projectsContainer {
     display: flex;
     flex-direction: column;
@@ -84,7 +51,6 @@
     padding: 0 20px;
 }
 
-/* See All Projects button */
 .seeAllProjectsBtn {
     position: relative;
     display: flex;
@@ -145,7 +111,7 @@
     font-size: 24px;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 900px) {
     .projectsSection {
         padding: 40px 0;
@@ -205,7 +171,7 @@
     }
 }
 
-/* Reduced motion preferences */
+
 @media (prefers-reduced-motion: reduce) {
 
     .seeAllProjectsBtn,
@@ -221,7 +187,7 @@
     }
 }
 
-/* Performance optimizations */
+
 .seeAllProjectsBtn {
     will-change: transform, box-shadow;
 }

@@ -1,6 +1,6 @@
 import styles from "./Hero.module.css"
 import {Link} from "react-router-dom"
-import {delay, motion} from "framer-motion"
+import {useReducedMotion, motion} from "framer-motion"
 
 
 const nameVariant = {
@@ -53,10 +53,11 @@ const buttonsContainerVariant={
 }
 
 function Hero(){
+    const reduceMotion = useReducedMotion()
     return(
         <section className={styles.heroSection} id="home">
 
-            <div>
+            <div className={styles.contentContainer}>
                 <motion.h1 
                 className={styles.name} 
                 variants={nameVariant} 
@@ -95,7 +96,13 @@ function Hero(){
             </div>
 
             <div className={styles.scrollDownArrowContainer}>
-                <a className="material-icons">keyboard_arrow_down</a>
+                <motion.a 
+                animate={reduceMotion ? {opacity:1} : {y:[0,12,0],opacity:[1,0.5,1]}}
+                transition={{repeat:Infinity,ease:"easeInOut",duration:1.6}}
+                className="material-icons" 
+                href="#About">
+                    keyboard_arrow_down
+                </motion.a>
             </div>
         </section>
     )
