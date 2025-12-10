@@ -1,7 +1,7 @@
 
 * {
   box-sizing: border-box;
-  outline: 2px solid red;
+  overflow-x: hidden;
 }
 
 :root {
