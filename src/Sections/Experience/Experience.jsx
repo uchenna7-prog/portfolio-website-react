@@ -18,7 +18,6 @@ const cardVariants = {
   show: {
     opacity: 1,
     x: 0,
-    y: 0,
     scale: 1,
     rotateY: 0,
     transition: { 
