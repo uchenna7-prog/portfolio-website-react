@@ -7,7 +7,6 @@
     padding: 60px 0;
 }
 
-
 .contactContainer {
     display: flex;
     flex-direction: row;
@@ -85,6 +84,8 @@
 .form button {
     height: 3rem;
     cursor: pointer;
+    will-change: transform;
+    /* kept because button animates on hover/tap */
 }
 
 .formInput {
@@ -97,6 +98,8 @@
     transition: all 0.3s ease;
     outline: none;
     position: relative;
+    will-change: transform, border-color;
+    /* kept because input animates on focus/hover */
 }
 
 .formInput::placeholder {
@@ -132,26 +135,6 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(14, 96, 179, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.formButton::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-}
-
-.formButton:hover::before {
-    width: 300px;
-    height: 300px;
 }
 
 .formButton:hover {
@@ -169,8 +152,6 @@
     align-items: center;
     gap: 12px;
     font-size: 18px;
-    position: relative;
-    z-index: 1;
 }
 
 .sendBtnText i {
@@ -189,6 +170,8 @@
     border: 2px solid rgba(14, 96, 179, 0.1);
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
+    will-change: transform, box-shadow;
+    /* kept because container animates on hover */
 }
 
 .ContactDetailContainer:hover {
@@ -334,12 +317,10 @@
     .formInput,
     .formInput::placeholder,
     .formButton,
-    .formButton::before,
     .ContactDetailContainer,
     .socialIcon,
     .ContactDetailContainer i,
-    .ContactDetailContainer span,
-    .sendBtnText i {
+    .ContactDetailContainer span {
         transition: none;
         animation: none;
     }
@@ -347,13 +328,4 @@
     .contactContainer>form {
         transition: none;
     }
-}
-
-.formInput,
-.formButton {
-    will-change: transform, border-color;
-}
-
-.ContactDetailContainer {
-    will-change: transform, box-shadow;
 }

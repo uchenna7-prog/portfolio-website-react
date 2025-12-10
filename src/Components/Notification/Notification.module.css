@@ -1,0 +1,33 @@
+.notificationContainer{
+    position: fixed;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4000;
+    flex-direction: column;
+    width: 300px;
+    height: 100px;
+    align-items: center;
+}
+
+.closeButton{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+}
+
+.messageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    padding: 20px;
+    top:18px;
+    right: 18px;
+}

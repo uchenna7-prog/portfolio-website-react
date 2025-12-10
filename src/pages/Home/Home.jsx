@@ -9,7 +9,6 @@ import Services from '../../Sections/Services/Services'
 
 
 
-
 export default function Home() {
     return (   
     <div className={styles.appContainer}>
