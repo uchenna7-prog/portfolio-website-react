@@ -24,7 +24,7 @@ function ProjectCard(props){
                 <div className={styles.sliderContainer}>
                     <div className={styles.imagesContainer} style={{ transform: `translateX(-${index * 100}%)` }}>
                         {props.images.map((img, i) => (
-                        <img key={i} src={img} className={styles.projectPicture} />
+                        <img key={i} src={img} className={styles.projectPicture} loading="lazy" />
                         ))}
                     </div>
 

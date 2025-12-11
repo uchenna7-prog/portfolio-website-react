@@ -65,7 +65,7 @@ function Projects() {
 
   const projects = [
     {
-      technologiesUsed: ["HTML", "CSS", "Javascript", "Python"],
+      technologiesUsed: ["HTML", "CSS", "React", "Emailjs"],
       projectTitle: "PORTFOLIO WEBSITE",
       images: [portfolioHome, portfolioAbout, portfolioServices, portfolioSkills, portfolioProjects, portfolioContact],
       projectDecription: "A modern personal portfolio website showcasing my skills, services, experience, and projects, featuring smooth navigation, responsive design, engaging visual sections, and an accessible contact area for seamless communication with visitors and potential clients."

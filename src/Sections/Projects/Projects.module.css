@@ -2,33 +2,14 @@
     background: var(--bg);
     padding: 50px 0;
     min-height: 100vh;
+
 }
-
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0) translateX(0);
-    }
-
-    33% {
-        transform: translateY(-15px) translateX(10px);
-    }
-
-    66% {
-        transform: translateY(8px) translateX(-8px);
-    }
-}
-
 
 .projectsContainer {
     display: flex;
     flex-direction: column;
     gap: 50px;
     align-items: center;
-    position: relative;
-    z-index: 10;
     padding: 0 20px;
 }
 
@@ -107,7 +88,7 @@
     }
 
     .seeAllProjectsBtn {
-        width: 70vw;
+        width: 70%;
         padding: 14px 30px;
         font-size: 1rem;
         margin: 60px auto 20px;
