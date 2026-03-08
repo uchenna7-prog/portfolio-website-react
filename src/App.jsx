@@ -8,7 +8,7 @@ import Notification from "./Components/Notification/Notification";
 
 function App() {
   return (
-    
+    <>
       <Header />
       <Notification/>
       <Routes>
@@ -17,7 +17,7 @@ function App() {
         <Route path="/Projects" element={<Projects />} />
       </Routes>
       <Footer />
-   
+   </>
   );
 }
 
