@@ -4,12 +4,11 @@ import Resume from "./pages/Resume/Resume";
 import Projects from "./pages/Projects/Projects";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import LoadingScreen from "./Components/LoadingPage/LoadingPage";
 import Notification from "./Components/Notification/Notification";
 
 function App() {
   return (
-    <LoadingScreen>
+    
       <Header />
       <Notification/>
       <Routes>
@@ -18,7 +17,7 @@ function App() {
         <Route path="/Projects" element={<Projects />} />
       </Routes>
       <Footer />
-    </LoadingScreen>
+   
   );
 }
 
