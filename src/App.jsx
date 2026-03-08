@@ -9,18 +9,16 @@ import Notification from "./Components/Notification/Notification";
 
 function App() {
   return (
-    <>
+    <LoadingScreen>
       <Header />
       <Notification/>
-      <LoadingScreen>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Resume" element={<Resume />} />
-          <Route path="/Projects" element={<Projects />} />
-        </Routes>
-        <Footer />
-      </LoadingScreen>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Resume" element={<Resume />} />
+        <Route path="/Projects" element={<Projects />} />
+      </Routes>
+      <Footer />
+    </LoadingScreen>
   );
 }
 
