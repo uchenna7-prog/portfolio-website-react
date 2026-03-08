@@ -48,7 +48,6 @@ body {
 
 #main {
   position: relative;
-  z-index: 2;
   font-family: "PT Sans", sans-serif;
   color: var(--color1);
 }
