@@ -2,53 +2,27 @@ import styles from "./Hero.module.css"
 import {Link} from "react-router-dom"
 import {useReducedMotion, motion} from "framer-motion"
 
-
 const nameVariant = {
-    hidden:{
-        opacity:0,
-        y:-60
-    },
+    hidden:{ opacity:0, y:-60 },
     show:{
-        opacity:1,
-        y:0,
-        transition:{
-            type: "spring",
-            stiffness: 80,
-            damping: 20,
-        }
+        opacity:1, y:0,
+        transition:{ type: "spring", stiffness: 80, damping: 20 }
     }
 }
 
-const briefIntroVariant={
-      hidden:{
-        opacity:0,
-        y:60
-    },
+const briefIntroVariant = {
+    hidden:{ opacity:0, y:60 },
     show:{
-        opacity:1,
-        y:0,
-        transition:{
-            type: "spring",
-            stiffness: 80,
-            damping: 20
-        }
+        opacity:1, y:0,
+        transition:{ type: "spring", stiffness: 80, damping: 20 }
     }
 }
 
-const buttonsContainerVariant={
-    hidden:{
-        opacity:0,
-        scale:0
-    },
+const buttonsContainerVariant = {
+    hidden:{ opacity:0, scale:0 },
     show:{
-        opacity:1,
-        scale:1,
-        transition:{
-            type: "spring",
-            stiffness: 80,
-            damping: 20,
-            delay:0.5
-        }
+        opacity:1, scale:1,
+        transition:{ type: "spring", stiffness: 80, damping: 20, delay:0.5 }
     }
 }
 
@@ -56,32 +30,33 @@ function Hero(){
     const reduceMotion = useReducedMotion()
     return(
         <section className={styles.heroSection} id="home">
-
             <div className={styles.contentContainer}>
-                <motion.h1 
-                className={styles.name} 
-                variants={nameVariant} 
-                initial="hidden" 
-                whileInView="show"
+                <motion.h1
+                    className={styles.name}
+                    variants={nameVariant}
+                    initial={reduceMotion ? "show" : "hidden"}
+                    animate="show"
                 >
                     UCHENDU UCHENNA
                 </motion.h1>
 
-                <motion.div 
-                className={styles.briefIntro} 
-                variants={briefIntroVariant} 
-                initial="hidden" 
-                whileInView="show">
+                <motion.div
+                    className={styles.briefIntro}
+                    variants={briefIntroVariant}
+                    initial={reduceMotion ? "show" : "hidden"}
+                    animate="show"
+                >
                     Front-end Web Developer | Computer Science Student.
                 </motion.div>
 
-                <motion.div 
-                className={styles.buttonsContainer}  
-                variants={buttonsContainerVariant} 
-                initial="hidden" 
-                whileInView="show">
+                <motion.div
+                    className={styles.buttonsContainer}
+                    variants={buttonsContainerVariant}
+                    initial={reduceMotion ? "show" : "hidden"}
+                    animate="show"
+                >
                     <button className={`${styles.button} ${styles.hireMeBtn}`}>
-                        <i class="fa-solid fa-briefcase"></i>
+                        <i className="fa-solid fa-briefcase"></i>
                         Hire Me
                     </button>
                     <Link to="/Resume" className="link">
@@ -90,17 +65,16 @@ function Hero(){
                             Résumé
                         </button>
                     </Link>
-
                 </motion.div>
-
             </div>
 
             <div className={styles.scrollDownArrowContainer}>
-                <motion.a 
-                animate={reduceMotion ? {opacity:1} : {y:[0,12,0],opacity:[1,0.5,1]}}
-                transition={{repeat:Infinity,ease:"easeInOut",duration:1.6}}
-                className="material-icons" 
-                href="#About">
+                <motion.a
+                    animate={reduceMotion ? {opacity:1} : {y:[0,12,0], opacity:[1,0.5,1]}}
+                    transition={{repeat:Infinity, ease:"easeInOut", duration:1.6}}
+                    className="material-icons"
+                    href="#About"
+                >
                     keyboard_arrow_down
                 </motion.a>
             </div>
