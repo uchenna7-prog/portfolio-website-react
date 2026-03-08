@@ -5,16 +5,9 @@ import styles from './LoadingPage.module.css';
 export default function LoadingScreen({ children }) {
   const [loading, setLoading] = useState(true);
 
-  return (
-    <>
-      {loading && (
-        <div className={styles.loadingPage}>
-          <PixelName onFinish={() => setLoading(false)} />
-        </div>
-      )}
-      <div style={{ visibility: loading ? 'hidden' : 'visible' }}>
-        {children}
-      </div>
-    </>
-  );
+  return loading ? (
+    <div className={styles.loadingPage}>
+      <PixelName onFinish={() => setLoading(false)} />
+    </div>
+  ) : (children);
 }
