@@ -50,7 +50,7 @@ body {
   position: relative;
   font-family: "PT Sans", sans-serif;
   color: var(--color1);
-  overflow-x: hidden;
+
 }
 
 .sectionHeading {
